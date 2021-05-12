@@ -1,0 +1,33 @@
+.tList {
+  border: 2px solid #cf6464;
+  text-overflow: ellipsis;
+  margin-bottom: 1em;
+  height: 5em;
+  font-family: 'New Tegomin', serif;
+  border-radius: 3.68%;
+  background-color: #e1eed0;
+  margin-left: 1em;
+}
+button {
+  margin-left: 0.6em;
+}
+.titulo {
+  margin-right: 0.6em;
+}
+.clave {
+  margin-right: 0.4em;
+}
+h4 {
+  width: 600px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left: 0.6em;
+}
+.no-me-interesa {
+  background-color: #cc3c3c;
+  color: blanchedalmond;
+}
+.me-interesa {
+  background-color: #99e930;
+}

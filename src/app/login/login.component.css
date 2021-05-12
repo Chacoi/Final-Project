@@ -1,0 +1,11 @@
+.container {
+  padding-top: 80px;
+  justify-content: center;
+}
+form {
+  border: 2px inset #990d0d;
+  padding: 2em 2em;
+}
+input {
+  width: 420px;
+}

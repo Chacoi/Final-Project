@@ -1,0 +1,43 @@
+<div class="container d-inline-flex justify-content-around filtro">
+    <span>Filtrar por:</span>
+    <div id="facultad" class="d-inline-flex">
+      <span>Facultad:</span>
+      <div class="dropdown">
+          <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            facultad de ingenieria
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item">Facultad de ingeniería</a></li>
+          </ul>
+        </div>
+    </div>
+    <div id="carrera" class="d-inline-flex">
+      <span> Carrera:</span>
+      <div class="dropdown">
+        <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+          ing. de ejec. en informatica
+        </a>
+      
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li><a class="dropdown-item" (click)="prueba('Facultad de Ingenieria')">Facultad de ingeniería</a></li>
+          <li><a class="dropdown-item" (click)="prueba('facultad de quimica')">Facultad de química</a></li>
+          <li><a class="dropdown-item" href="#">Instituto de música</a></li>
+        </ul>
+      </div>
+    </div>
+</div>
+  <div class="container" id="tList">
+    <div class="tList container"  *ngIf="this.selection == calculo.getFacultad()">
+      <div *ngFor="let asignatura of asignaturas">
+        <div class="d-flex justify-content-between">
+          <h4>{{asignatura.getSigla()}}</h4>
+          <div>
+            <button class="btn btn-success" routerLink='/info'>Ver reseña</button>
+            <button class="btn btn-primary">Solicitar unirse</button>
+          </div>
+        </div>
+        <p><i>{{asignatura.getFacultad()}}/ {{asignatura.getCarrera()}}</i></p>
+      </div>
+      
+    </div>
+  </div>

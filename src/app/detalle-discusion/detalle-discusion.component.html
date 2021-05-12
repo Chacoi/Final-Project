@@ -1,0 +1,30 @@
+ <div class="container">
+    <div class="row">
+        <div class="col-3">
+            <img src="../../assets/libros antiguos.jpg">
+        </div>
+        
+        <div class="col-9">
+            <h4>{{discusion.getTitulo()}}</h4><span><i>{{discusion.getId()}}</i></span>
+            <p>{{discusion.getContenido()}}</p>
+        </div>
+    </div>
+    <form class="d-flex mb-2 mt-2">
+        <input class="form-control me-2" name="comentario" type="search" [(ngModel)]="comentario" placeholder="Escriba aquí su comentario..." aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" (click)="crearComentario(comentario)">Enviar</button>
+    </form>
+    <div class="row" *ngFor="let comentario of comentarios">
+        <div class="col-1">
+            <img src="../../assets/libros antiguos.jpg" alt="" class="icon-perfil">
+            <p class="mr-2 nombre-usuario"><b>{{comentario.getAutor()}}</b></p>
+        </div>
+        <div class="col-11 ">
+                <p class="ml-4">{{comentario.getContenido()}}</p>
+                <div class="d-flex justify-content-end">
+                    <i class="bi bi-hand-thumbs-up-fill"></i>
+                    <i class="bi bi-hand-thumbs-down-fill"></i>
+                </div>
+        </div>   
+    </div>
+</div>
+

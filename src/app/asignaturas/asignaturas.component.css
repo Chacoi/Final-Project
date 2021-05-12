@@ -1,0 +1,12 @@
+#cList {
+  border: 2px solid #cf6464;
+  margin-bottom: 2em;
+  font-family: 'New Tegomin', serif;
+  background-color: #e1eed0;
+}
+.cList {
+  border-bottom: 1px ridge gray;
+}
+.carousel-item {
+  height: 300px;
+}

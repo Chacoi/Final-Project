@@ -1,0 +1,19 @@
+.detalles {
+  margin-bottom: 2em;
+}
+#reseñas {
+  border: 2px solid gray;
+  padding-bottom: 2em;
+}
+.icon-perfil {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  transform: translateY(1em);
+}
+.autor {
+  padding-bottom: 0.3em;
+}
+.reseña {
+  border: 2px solid #882929;
+}

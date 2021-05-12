@@ -1,0 +1,56 @@
+<div class="container detalles">
+    <div class="row">
+        <div class="col-3">
+            <img src="../../assets/libros antiguos.jpg">
+        </div>
+        <div class="col-9">
+            <div class="row">
+                <div class="col-6">
+                    <h4>Nombre: {{calculo.getNombre()}}</h4>
+                </div>
+                <div class="col-6">
+                    <h4>Nombre profesor:</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h4>Clave: {{calculo.getSigla()}}</h4>
+                </div>
+                <div class="col-6">
+                    <h4>Sala: {{calculo.getSala()}}</h4>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <h4>Horario: {{calculo.getSala()}}</h4>
+                </div>
+                <div class="col-6">
+                    <h4>Puntuación: {{calculo.getPuntuacion()}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container" id="reseñas">
+    <form class="d-flex mb-2 mt-2">
+        <input class="form-control me-2" type="search" name="comentario" [(ngModel)]="contenido" placeholder="Escriba aquí su reseña..." aria-label="Search">
+        <button class="btn btn-outline-success" type="submit" (click)="crearResena(contenido)">Enviar</button>
+    </form>
+    <div class="row reseña" *ngFor="let comentario of comentarios">
+        <div class="col-1">
+            <img [src]=comentario.getPerfil() alt="" class="icon-perfil">
+        </div>
+        <div class="col-11">
+            <div class="d-inline-flex">
+                <p class="mr-2"><b>{{comentario.getAutor()}}</b></p>
+                <p><i>-Profesor aludido: No me acuerdo</i></p>
+            </div>
+            <p class="ml-4">{{comentario.getContenido()}}</p>
+            <div class="d-flex justify-content-end">
+                <i class="bi bi-hand-thumbs-up-fill"></i>
+                <i class="bi bi-hand-thumbs-down-fill"></i>
+            </div>
+        </div>
+    </div>
+   
+</div>
