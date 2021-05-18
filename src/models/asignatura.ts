@@ -11,12 +11,10 @@ export class Asignatura{
     private facultad: String;
     private carrera: String;
 
- 
-
     private comunidades: Comunidad[];
     private comentarios: Comentario[];
 
-    constructor(sigla, nombre, horario, sala, imagen, puntuacion, facultad, carrera, comunidades, comentarios){
+    constructor(sigla?, nombre?, horario?, sala?, imagen?, puntuacion?, facultad?, carrera?, comunidades?, comentarios?){
         this.sigla = sigla;
         this.nombre = nombre;
         this.horario = horario;

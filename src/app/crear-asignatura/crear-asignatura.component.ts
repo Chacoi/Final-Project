@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { Asignatura } from '../../models/asignatura';
 import { NgForm } from '@angular/forms';
+import { Asignatura } from '../../models/asignatura';
 
 //Services
 import { AsignaturaService } from '../services/asignatura.service';
 
 @Component({
-  selector: 'app-asignaturas',
-  templateUrl: './asignaturas.component.html',
-  styleUrls: ['./asignaturas.component.less']
+  selector: 'app-crear-asignatura',
+  templateUrl: './crear-asignatura.component.html',
+  styleUrls: ['./crear-asignatura.component.less']
 })
-export class AsignaturasComponent implements OnInit {
+export class CrearAsignaturaComponent implements OnInit {
 
-constructor(private asignaturaService: AsignaturaService) { }
+  constructor(public asignaturaService: AsignaturaService) { }
 
   ngOnInit(): void {
     this.asignaturaService.getAsignatura();
     this.resetForm();
   }
-
   onSubmit(formAsignatura: NgForm){
-    if(formAsignatura.value.sigla == null)
+    //if(formAsignatura.value.sigla == null)
       this.asignaturaService.insertAsignatura(formAsignatura.value);
     // else
     //   this.asignaturaService.updateAsignatura(formAsignatura.value);

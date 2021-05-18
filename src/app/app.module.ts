@@ -13,6 +13,9 @@ import { environment } from '../environments/environment';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 
+//services
+import { AsignaturaService } from './services/asignatura.service'
+
 //components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -24,6 +27,7 @@ import { InfoComponent } from './info/info.component';
 import { DetalleDiscusionComponent } from './detalle-discusion/detalle-discusion.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
+import { CrearAsignaturaComponent } from './crear-asignatura/crear-asignatura.component';
 
 
 @NgModule({
@@ -37,13 +41,14 @@ import { LoginComponent } from './login/login.component';
     InfoComponent,
     DetalleDiscusionComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    CrearAsignaturaComponent
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     //AngularFireAuthModule,
     AngularFireStorageModule,
@@ -56,7 +61,8 @@ import { LoginComponent } from './login/login.component';
       {path:'info', component: InfoComponent},
       {path:'detalle-discusion', component: DetalleDiscusionComponent},
       {path:'registro', component: RegistroComponent},
-      {path:'login', component: LoginComponent}
+      {path:'login', component: LoginComponent},
+      {path:'add-asig', component: CrearAsignaturaComponent}
     ]),
     FormsModule,
     ReactiveFormsModule
