@@ -9,53 +9,44 @@ export class AsignaturaService {
   asignaturaList: AngularFireList<any>;
   selectAsignatura: Asignatura = new Asignatura();
   constructor(private firebase: AngularFireDatabase) {}
+  
     getAsignatura(){
       return this.asignaturaList = this.firebase.list('asignaturas');
     }
 
-    // insertAsignatura(asignatura: Asignatura){
-    //   this.asignaturaList.push({
-    //     sigla: asignatura.getSigla(),
-    //     nombre: asignatura.getNombre(),
-    //     horario: asignatura.getHorario(),
-    //     sala: asignatura.getSala(),
-    //     imagen: asignatura.getImagen(),
-    //     puntuacion: asignatura.getPuntuacion(),
-    //     facultad: asignatura.getFacultad(),
-    //     carrera: asignatura.getCarrera(),
-    //     comunidades: asignatura.getComunidades(),
-    //     comentarios: asignatura.getComentarios()
-    //   });
-    // }
     insertAsignatura(asignatura: Asignatura){
+      //----Traspaso getters------
+      //let sigla   = asignatura.Sigla;
+      // let nombre  = asignatura.getNombre();
+      // let horario = asignatura.getHorario();
+      // let sala    = asignatura.getSala();
+      // let imagen  = asignatura.getImagen();
+      // let facultad = asignatura.getFacultad();
+
+      let sigla   = asignatura.sigla;
+      let nombre  = asignatura.nombre;
+      let horario = asignatura.horario;
+      let sala    = asignatura.sala;
+      let imagen  = asignatura.imagen;
+      let facultad = asignatura.facultad;
+
+      //----Inserción de datos-----
       this.asignaturaList.push({
-        sigla: asignatura.getSigla(),
-        nombre: asignatura.getNombre(),
-        horario: asignatura.getHorario(),
-        sala: asignatura.getSala(),
-        imagen: asignatura.getImagen(),
-        puntuacion: asignatura.getPuntuacion(),
-        facultad: asignatura.getFacultad(),
-        carrera: asignatura.getCarrera(),
-        comunidades: asignatura.getComunidades(),
-        comentarios: asignatura.getComentarios()
+        sigla, nombre, horario, sala, imagen, facultad 
       });
     }
 
-    // updateAsignatura(asignatura: Asignatura){
-    //   this.asignaturaList.update(asignatura.getSigla(), {
-    //     sigla: asignatura.getSigla(),
-    //     nombre: asignatura.getNombre(),
-    //     horario: asignatura.getHorario(),
-    //     sala: asignatura.getSala(),
-    //     imagen: asignatura.getImagen(),
-    //     puntuacion: asignatura.getPuntuacion(),
-    //     facultad: asignatura.getFacultad(),
-    //     carrera: asignatura.getCarrera(),
-    //     comunidades: asignatura.getComunidades(),
-    //     comentarios: asignatura.getComentarios()
-    //   })
-    // }
+    updateAsignatura(asignatura: Asignatura){
+      this.asignaturaList.update(asignatura.sigla, {
+        sigla: asignatura.sigla,
+        nombre: asignatura.nombre,
+        horario: asignatura.horario,
+        sala: asignatura.sala,
+        imagen: asignatura.imagen,
+        puntuacion: asignatura.puntuacion,
+        facultad: asignatura.facultad,
+      });
+    }
 
 
    

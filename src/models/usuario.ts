@@ -1,28 +1,28 @@
 
 
 export class Usuario{
-    private id: String;
+    private id: string;
     private username: String;
-    private nombre: String;
+    private correo: String;
     private rango: String;
     private rol: String;
 
     
 
 
-    constructor(id, username, nombre, rango, rol){
+    constructor(id, username, correo, rango, rol){
         this.id = id;
         this.username = username;
-        this.nombre = nombre;
+        this.correo = correo;
         this.rango = rango;
         this.rol = rol;
     }
 
-    public getId(): String {
+    public getId(): string {
         return this.id;
     }
 
-    public setId(id: String): void {
+    public setId(id: string): void {
         this.id = id;
     }
 
@@ -34,12 +34,12 @@ export class Usuario{
         this.username = usernaem;
     }
 
-    public getNombre(): String {
-        return this.nombre;
+    public getCorreo(): String {
+        return this.correo;
     }
 
-    public setNombre(nombre: String): void {
-        this.nombre = nombre;
+    public setCorreo(correo: String): void {
+        this.correo = correo;
     }
 
     public getRango(): String {
