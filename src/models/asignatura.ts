@@ -2,21 +2,19 @@ import { Comunidad } from '../models/comunidad';
 import { Comentario } from '../models/comentario';
 
 export class Asignatura{
-    private sigla: String;
-    private nombre: String;
-    private horario: String;
-    private sala: String;
-    private imagen: String;
-    private puntuacion: Number;
-    private facultad: String;
-    private carrera: String;
+     sigla: string;
+     nombre: String;
+     horario: String;
+     sala: String;
+     imagen: String;
+     puntuacion: Number;
+     facultad: String;
+     carrera: String;
 
- 
+     comunidades: Comunidad[];
+     comentarios: Comentario[];
 
-    private comunidades: Comunidad[];
-    private comentarios: Comentario[];
-
-    constructor(sigla, nombre, horario, sala, imagen, puntuacion, facultad, carrera, comunidades, comentarios){
+    constructor(sigla?, nombre?, horario?, sala?, imagen?, puntuacion?, facultad?, carrera?, comunidades?, comentarios?){
         this.sigla = sigla;
         this.nombre = nombre;
         this.horario = horario;
@@ -29,11 +27,11 @@ export class Asignatura{
         this.comentarios = comentarios;
     }
 
-    public getSigla(): String {
+    get Sigla(): string {
         return this.sigla;
     }
 
-    public setSigla(sigla: String): void {
+    public setSigla(sigla: string): void {
         this.sigla = sigla;
     }
 

@@ -2,9 +2,21 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+//import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
+//routing
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+
+//services
+import { AsignaturaService } from './services/asignatura.service'
+
+//components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -15,6 +27,8 @@ import { InfoComponent } from './info/info.component';
 import { DetalleDiscusionComponent } from './detalle-discusion/detalle-discusion.component';
 import { RegistroComponent } from './registro/registro.component';
 import { LoginComponent } from './login/login.component';
+import { CrearAsignaturaComponent } from './crear-asignatura/crear-asignatura.component';
+
 
 @NgModule({
   declarations: [
@@ -27,12 +41,17 @@ import { LoginComponent } from './login/login.component';
     InfoComponent,
     DetalleDiscusionComponent,
     RegistroComponent,
-    LoginComponent
+    LoginComponent,
+    CrearAsignaturaComponent
   ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    //AngularFireAuthModule,
+    AngularFireStorageModule,
     RouterModule.forRoot([
       {path:'', component: InicioComponent},
       {path:'discusiones', component: DiscusionesComponent},
@@ -42,7 +61,8 @@ import { LoginComponent } from './login/login.component';
       {path:'info', component: InfoComponent},
       {path:'detalle-discusion', component: DetalleDiscusionComponent},
       {path:'registro', component: RegistroComponent},
-      {path:'login', component: LoginComponent}
+      {path:'login', component: LoginComponent},
+      {path:'add-asig', component: CrearAsignaturaComponent}
     ]),
     FormsModule,
     ReactiveFormsModule

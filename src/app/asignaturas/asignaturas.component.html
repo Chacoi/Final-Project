@@ -1,16 +1,20 @@
  <div class="container" id="cList">            <!--Caja de busqueda de asignaturas -->
     <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <input 
+        class       ="form-control me-2" 
+        type        ="search" 
+        placeholder ="Search" 
+        aria-label  ="Search">
         <button class="btn btn-outline-success" type="submit">Buscar asignatura</button>
     </form>
     <div class="cList d-flex justify-content-between">
-        <h3>{{calculo.getSigla()}}</h3>
+        <h3>asignatura</h3>
         <button routerLink="/cominf">Ingresar</button>
     </div>
 
 </div>
 
-<div class="container">                       <!-- Espacio informativo -->
+<div class="container">                       <!-- Espacio informativo, carrusel -->
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
