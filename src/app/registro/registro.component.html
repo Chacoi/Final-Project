@@ -1,12 +1,15 @@
 <div class="container d-flex aling-center">
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
         <div class="form-group">
             <label for="email">Correo institucional</label>
             <input 
             formControlName="email"
             id="email"
             class="form-control"
-            type="text">
+            type="text"
+            name="email"
+            [value]="email"
+            >
             <div class="alert alert-danger" *ngIf="email?.touched && email?.invalid">
                 <div *ngIf="email?.errors?.required">Su correo institucional es requerido.</div>
                 <div *ngIf="email?.errors?.cantContainSpace">Su correo no puede contener espacios.</div>
@@ -18,7 +21,10 @@
                 formControlName="username"
                 id="username" 
                 type="text" 
-                class="form-control">
+                class="form-control"
+                name="username"
+                [value]="username"
+                >
                 <div class="alert alert-danger" *ngIf="username?.touched && username?.invalid">
                     <div *ngIf="username?.errors?.required">El nombre de usuario es requerido.</div>
                     <div *ngIf="username?.errors?.minlength">El nombre de usuario debe tener al menos 5 caracteres.</div>
@@ -32,7 +38,10 @@
                 formControlName="password"
                 id="password" 
                 type="text" 
-                class="form-control">
+                class="form-control"
+                name="password"
+                [value]="password"
+                >
                 <div class="alert alert-danger" *ngIf="password?.touched && password?.invalid">
                 <div *ngIf="password?.errors?.required">La contrasena es requerida.</div>
                 <div *ngIf="password?.errors?.minlength">La contrasena debe contener al menos 8 caracteres.</div>
