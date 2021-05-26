@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { UsernameValidators } from './validators';
+import { Usuario } from '../../models/usuario';
+import { UsuarioService } from '../services/usuario.service';
+import { Router, RouterStateSnapshot, ActivatedRouteSnapshot} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,36 +10,37 @@ import { UsernameValidators } from './validators';
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
+  usuarioList: Usuario[];
+  constructor(
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) { }
 
-  constructor() { }
-  form = new FormGroup({
-    username: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-      UsernameValidators.cantContainSpace /*,
-      UsernameValidators.isUnique*/
-    ]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(8)
-    ]),
-    email: new FormControl('', [
-      Validators.required,
-      UsernameValidators.cantContainSpace
-    ])
-  });
-
-  get username(){
-    return this.form.get('username');
+  ngOnInit() {
+    return this.usuarioService.getUsuario()
+    .snapshotChanges().subscribe(item =>{
+      this.usuarioList = [];
+      item.forEach(element =>{
+        let x = JSON.parse(JSON.stringify(element.payload));
+        x["id"] = element.key;
+        this.usuarioList.push(x as Usuario);
+      });
+    });
   }
 
-  get email(){
-    return this.form.get('email')
-  }
-  get password(){
-    return this.form.get('password');
-  }
-  ngOnInit(): void {
+  onSearch(usuario: Usuario, route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean{
+    this.usuarioList.forEach(element => {
+      console.log("Analizando elemento..."+element);
+      if(element.username == usuario.username){
+        console.log("Elemento encontrado");
+        this.router.navigate(['/discusiones'], { queryParams: { returnUrl: state.url }});
+        return true;
+      }
+    });
+    return false;
   }
 
+  onLogin(usuario: Usuario){
+
+  }
 }

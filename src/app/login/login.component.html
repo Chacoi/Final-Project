@@ -1,32 +1,23 @@
 <div class="container d-flex aling-center">
-    <form [formGroup]="form">
+    <form #userLogin="ngForm">
         <div class="form-group">
             <label for="username">Usuario</label>
             <input 
-                formControlName="username"
-                id="username" 
-                type="text" 
-                class="form-control">
-                <div class="alert alert-danger" *ngIf="username?.touched && username?.invalid">
-                    <div *ngIf="username?.errors?.required">El nombre de usuario es requerido.</div>
-                    <div *ngIf="username?.errors?.minlength">El nombre de usuario debe tener al menos 5 caracteres.</div>
-                    <div *ngIf="username?.errors?.cantContainSpace">El nombre de usuario no puede contener espacios.</div>
-                    <!--<div *ngIf="username?.errors?.isUnique">This username isn't available</div>-->
-                </div>
+                id      ="username" 
+                name    ="name"
+                type    ="text" 
+                class   ="form-control">
         </div>
-        <div class="form-group">
-            <label for="password">Contrasena</label>
+        <div class="form-group pb-3">
+            <label for="password">Contraseña</label>
             <input 
-                formControlName="password"
-                id="password" 
-                type="text" 
-                class="form-control">
-                <div class="alert alert-danger" *ngIf="password?.touched && password?.invalid">
-                <div *ngIf="password?.errors?.required">La contrasena es requerida.</div>
-                <div *ngIf="password?.errors?.minlength">La contrasena debe contener al menos 8 caracteres.</div>
-            </div>
+                id      ="password" 
+                name    ="password"
+                type    ="text" 
+                class   ="form-control">
+            
         </div>
-        <button class="btn btn-primary" type="submit">Sign Up</button>
-        <p>No estas registrado? <a routerLink="../registro">Ingresa aqui</a></p>
+        <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+        <p class="pt-3">No estas registrado? <a routerLink="../registro">Ingresa aqui</a></p>
     </form>
 </div>
