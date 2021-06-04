@@ -1,4 +1,5 @@
-import { Component, OnInit }  from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 
 //Models
 import { Asignatura }         from '../../models/asignatura';
@@ -16,7 +17,9 @@ import { AsignaturaService }  from '../services/asignatura.service';
 })
 export class AsignaturasComponent implements OnInit {
 
-constructor(private asignaturaService: AsignaturaService) { }
+  
+  constructor(private asignaturaService: AsignaturaService) {};
+ 
   ngOnInit(): void {                        //Instancia de la asignatura y reinicio de formulario
     this.asignaturaService.getAsignatura();
     this.resetForm();

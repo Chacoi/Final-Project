@@ -18,7 +18,7 @@ export class CrearAsignaturaComponent implements OnInit {
     this.asignaturaService.getAsignatura();
     this.resetForm();
   }
-  onSubmit(formAsignatura: NgForm){
+  onSubmit(formAsignatura){
     //if(formAsignatura.value.sigla == null)
       this.asignaturaService.insertAsignatura(formAsignatura.value);
     // else

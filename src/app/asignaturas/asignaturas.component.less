@@ -1,17 +1,13 @@
-@bordeRosado            :rgb(207, 100, 100);
-@fuenteGeneral          :'New Tegomin';
-@colorFondoAsignaturas  :rgb(225, 238, 208);
-@gris                   :gray;
-@ridge                  :ridge;
+@import '../app.component.less';
 #cList{
-    border: 2px solid @bordeRosado;
-    margin-bottom: 2em;
-    font-family: @fuenteGeneral, serif;
+    border          : 2px solid @bordeRosado;
+    margin-bottom   : 2em;
+    font-family     : @newTagomin, serif;
     background-color: @colorFondoAsignaturas;
 }
 .cList{
-    border-bottom: 1px ridge @gris;
+    border-bottom   : 1px @ridge @gris;
 }
 .carousel-item{
-    height: 300px;
+    height  : 300px;
 }
