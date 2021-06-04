@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { AsignaturasComponent } from '../asignaturas/asignaturas.component';
-import { Asignatura } from '../../models/asignatura';
+import { Component, OnInit }  from '@angular/core';
+import { AngularFireAuth}     from '@angular/fire/auth';
+import { Router }             from '@angular/router';
+import { Asignatura }         from '../../models/asignatura';
 
 @Component({
   selector: 'app-filtro',
@@ -16,10 +17,18 @@ export class FiltroComponent implements OnInit {
     this.selection = facultad;
     console.log(this.selection);
   }
-  
-  constructor() {
+  name: any;
+  state: string = '';
+  constructor(public af: AngularFireAuth, private router: Router) {
     this.asignaturas.push(this.calculo);
+    this.af.authState.subscribe(auth => {
+      if(auth){
+        this.name = auth;
+      }
+    });
    }
+   
+   
 
   ngOnInit(): void {
   }

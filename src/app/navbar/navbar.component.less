@@ -1,20 +1,20 @@
-
+@import '../app.component.less';
 .navbar {
-    flex-direction: row;
+    flex-direction: @row;
     padding-bottom: 1em;
     margin-bottom: 50px;
-    background-color: rgba(241, 182, 19, 0.884);
-    font-family: 'New Tegomin', serif;
+    background-color: @navbarYellow;
+    font-family: @newTagomin, serif;
   }
   form {
-    align-items: center;
+    align-items: @center;
   }
   .mainContainer {
     height: 40px;
     width: 1500px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
+    border: 1px @solid @negro;
+    display: @flex;
+    justify-content: @center;
   }
   #navbarSupportedContent{
     justify-content: flex-end;
