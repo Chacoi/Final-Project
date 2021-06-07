@@ -6,7 +6,6 @@ import { Usuario }                                    from 'src/models/usuario';
 import { AngularFireAuth}                             from '@angular/fire/auth';
 import { Router }                                     from '@angular/router';
 import * as firebase                                  from 'firebase';
-import { AngularFireModule }                          from '@angular/fire';
 @Component({
   selector    : 'app-registro',
   templateUrl : './registro.component.html',

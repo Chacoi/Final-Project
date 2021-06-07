@@ -1,22 +1,22 @@
 import { Comentario } from '../models/comentario';
 
 export class Discusion{
-    private id: String;
-    private autor: String;
-    private titulo: String;
-    private contenido: String;
-    private fecha: String;
-    private comentarios: Comentario[];
+     id: String;
+     autor: String;
+     titulo: String;
+     contenido: String;
+     //fecha: String;
+     comentarios: Comentario[];
 
-    constructor(id, autor, titulo, contenido, fecha, comentarios){
-        this.id = id;
-        this.autor = autor;
-        this.titulo = titulo;
-        this.contenido = contenido;
-        this.fecha = fecha;
-        this.comentarios = comentarios;
+    constructor(id?, autor?, titulo?, contenido?, comentarios?){
+        this.id             = id;
+        this.autor          = autor;
+        this.titulo         = titulo;
+        this.contenido      = contenido;
+        //this.fecha          = fecha;
+        this.comentarios    = comentarios;
     }
-
+/*
     public getId(): String {
         return this.id;
     }
@@ -64,5 +64,5 @@ export class Discusion{
     public setComentarios(comentarios: Comentario[]): void {
         this.comentarios = comentarios;
     }
-
+*/
 }

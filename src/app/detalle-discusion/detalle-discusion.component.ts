@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Discusion } from 'src/models/discusion';
 import { Comentario } from 'src/models/comentario';
+import { DiscusionService } from '../services/discusion.service';
 
 @Component({
   selector: 'app-detalle-discusion',
@@ -10,6 +11,7 @@ import { Comentario } from 'src/models/comentario';
 export class DetalleDiscusionComponent implements OnInit {
 
   comentarios: Comentario[] = [];
+  discusionActual = new Discusion();
  
   comentario1: Comentario;
   comentario: string;
@@ -20,14 +22,15 @@ export class DetalleDiscusionComponent implements OnInit {
   }
   contenido: String = `Lorem ipsum, dolor ficiis possimus, 
   quasi temporibus laboriosam. Itaque, nam iste.`;
-  discusion = new Discusion('83ue83', 'user133', 'Gente tengo un problema', this.contenido, '12-09-20', null);
+  //discusion = new Discusion('83ue83', 'user133', 'Gente tengo un problema', this.contenido, '12-09-20', null);
   /*comentario1 = new Comentario('42re52r', 'user133', this.contenido, 'resena', '../../assets/libros antiguos.jpg');
   comentario2 = new Comentario('42ue872r', 'user69', this.contenido, 'discusion', '../../assets/libros antiguos.jpg');
   */
   
-  constructor() { }
+  constructor(public discService: DiscusionService) { }
 
   ngOnInit(): void {
   }
 
+  
 }

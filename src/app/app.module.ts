@@ -29,6 +29,7 @@ import { DetalleDiscusionComponent }  from './detalle-discusion/detalle-discusio
 import { RegistroComponent }          from './registro/registro.component';
 import { LoginComponent }             from './login/login.component';
 import { CrearAsignaturaComponent }   from './crear-asignatura/crear-asignatura.component';
+import { CrearDiscusionComponent } from './crear-discusion/crear-discusion.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { CrearAsignaturaComponent }   from './crear-asignatura/crear-asignatura.
     DetalleDiscusionComponent,
     RegistroComponent,
     LoginComponent,
-    CrearAsignaturaComponent
+    CrearAsignaturaComponent,
+    CrearDiscusionComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,8 @@ import { CrearAsignaturaComponent }   from './crear-asignatura/crear-asignatura.
       {path:'detalle-discusion',  component: DetalleDiscusionComponent},
       {path:'registro',           component: RegistroComponent},
       {path:'login',              component: LoginComponent},
-      {path:'add-asig',           component: CrearAsignaturaComponent}
+      {path:'add-asig',           component: CrearAsignaturaComponent},
+      {path:'add-disc',           component: CrearDiscusionComponent}
     ]),
     FormsModule,
     ReactiveFormsModule,
