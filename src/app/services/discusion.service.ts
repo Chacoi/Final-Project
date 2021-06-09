@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Discusion } from 'src/models/discusion';
 import { Usuario }                              from '../../models/usuario';
+import { ComentarioService } from '../services/comentario.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DiscusionService {
 
+  idDiscusion: string;
   discusionList   : AngularFireList<any>;
   selectDiscusion : Discusion = new Discusion();
   constructor(private firebase: AngularFireDatabase) {
@@ -32,10 +34,13 @@ export class DiscusionService {
     });
   }
 
-  verDiscusion(discusion: Discusion){
-    this.selectDiscusion.autor = discusion.autor;
-    this.selectDiscusion.titulo= discusion.titulo;
-    this.selectDiscusion.contenido = discusion.contenido;
-    
+  verDiscusion(discusion: Discusion, idDiscusion: string){
+    console.log(idDiscusion + "funcion ver discusion");
+    this.selectDiscusion.autor      = discusion.autor;
+    this.selectDiscusion.titulo     = discusion.titulo;
+    this.selectDiscusion.contenido  = discusion.contenido;
+    this.selectDiscusion.id                = idDiscusion;
+    this.idDiscusion                     = idDiscusion;
   }
+
 }

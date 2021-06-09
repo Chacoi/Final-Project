@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Discusion } from 'src/models/discusion';
 import { Comentario } from 'src/models/comentario';
 import { DiscusionService } from '../services/discusion.service';
+import { AngularFireDatabase }  from '@angular/fire/database';
+import * as firebase from 'firebase';
+import { ComentarioService } from '../services/comentario.service';
 
 @Component({
   selector: 'app-detalle-discusion',
@@ -10,24 +13,34 @@ import { DiscusionService } from '../services/discusion.service';
 })
 export class DetalleDiscusionComponent implements OnInit {
 
+  comentarioList = this.db.list('discusiones/comentarios');
   comentarios: Comentario[] = [];
-  discusionActual = new Discusion();
- 
-  comentario1: Comentario;
+  comentarioActual = new Comentario();
+  idDiscusion: string;
   comentario: string;
-  crearComentario(comentario){ 
-    this.comentario1 = new Comentario('83ue83', 'user133', comentario, '12-09-20', '../../assets/libros antiguos.jpg');
-    this.comentarios.push(this.comentario1);
-    
-  }
-  contenido: String = `Lorem ipsum, dolor ficiis possimus, 
-  quasi temporibus laboriosam. Itaque, nam iste.`;
-  //discusion = new Discusion('83ue83', 'user133', 'Gente tengo un problema', this.contenido, '12-09-20', null);
-  /*comentario1 = new Comentario('42re52r', 'user133', this.contenido, 'resena', '../../assets/libros antiguos.jpg');
-  comentario2 = new Comentario('42ue872r', 'user69', this.contenido, 'discusion', '../../assets/libros antiguos.jpg');
-  */
   
-  constructor(public discService: DiscusionService) { }
+  constructor(public discService: DiscusionService, private db: AngularFireDatabase, private comentarioService: ComentarioService) {
+    // const uid = this.discService.getDiscusion().;
+    // const list = this.db.database.list(`discusiones/${uid}/comentarios`);
+   }
+   crearComentario(){ 
+    this.comentarioActual.autor     = firebase.auth().currentUser.displayName;
+    this.comentarioActual.id        = this.discService.idDiscusion;
+    this.comentarioActual.contenido = this.comentario;
+    this.comentarioActual.perfil    = "pendiente";
+    this.comentarioActual.tipo      = true;
+    this.comentarioService.insertComentario(this.comentarioActual, this.discService.idDiscusion);
+   }
+  
+  // obtenerComentarios(){
+  //   this.db.list("discusiones").. then((querySnapshot) => {
+  //     querySnapshot. forEach((doc) => {
+  //     console. log(`${doc. id} => ${doc. data()}`);
+  //     });
+  //   }
+  // }
+
+
 
   ngOnInit(): void {
   }

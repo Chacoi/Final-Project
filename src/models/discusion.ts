@@ -1,10 +1,10 @@
 import { Comentario } from '../models/comentario';
 
 export class Discusion{
-     id: String;
-     autor: String;
-     titulo: String;
-     contenido: String;
+     id: string;
+     autor: string;
+     titulo: string;
+     contenido: string;
      //fecha: String;
      comentarios: Comentario[];
 
