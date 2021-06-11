@@ -2,16 +2,18 @@ import { Usuario } from '../models/usuario';
 import { Discusion } from '../models/discusion';
 
 export class Comunidad{
-    private id: String;
-    private estudiantes: Usuario[];
-    private discusiones: Discusion[];
+    id: string;
+    titulo: string;
+    contenido: string;
+    imagen: string;
 
-    constructor(id, estudiantes, discusiones){
+    constructor(id?, titulo?, contenido?, imagen?){
         this.id = id;
-        this.estudiantes = estudiantes;
-        this.discusiones = discusiones;
+        this.titulo = titulo;
+        this.contenido = contenido;
+        this.imagen = imagen;
     }
-
+/*
     public getId(): String {
         return this.id;
     }
@@ -35,5 +37,5 @@ export class Comunidad{
     public setDiscusiones(discusiones: Discusion[]): void {
         this.discusiones = discusiones;
     }
-
+*/
 }

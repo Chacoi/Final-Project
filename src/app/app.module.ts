@@ -30,6 +30,8 @@ import { RegistroComponent }          from './registro/registro.component';
 import { LoginComponent }             from './login/login.component';
 import { CrearAsignaturaComponent }   from './crear-asignatura/crear-asignatura.component';
 import { CrearDiscusionComponent } from './crear-discusion/crear-discusion.component';
+import { ComunidadComponent } from './comunidad/comunidad.component';
+import { ListaComunidadesComponent } from './lista-comunidades/lista-comunidades.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import { CrearDiscusionComponent } from './crear-discusion/crear-discusion.compo
     RegistroComponent,
     LoginComponent,
     CrearAsignaturaComponent,
-    CrearDiscusionComponent
+    CrearDiscusionComponent,
+    ComunidadComponent,
+    ListaComunidadesComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +68,9 @@ import { CrearDiscusionComponent } from './crear-discusion/crear-discusion.compo
       {path:'registro',           component: RegistroComponent},
       {path:'login',              component: LoginComponent},
       {path:'add-asig',           component: CrearAsignaturaComponent},
-      {path:'add-disc',           component: CrearDiscusionComponent}
+      {path:'add-disc',           component: CrearDiscusionComponent},
+      {path:'comunidad',          component: ComunidadComponent},
+      {path:'lista-comunidades',  component: ListaComunidadesComponent}
     ]),
     FormsModule,
     ReactiveFormsModule,

@@ -28,11 +28,11 @@ export class CrearDiscusionComponent implements OnInit {
     //---------Validaciones de campos---------
   form = new FormGroup({
     titulo: new FormControl('', [                           //Campo requerido
-      Validators.required,
-      Validators.maxLength(150)
+      Validators.required
     ]),
     contenido: new FormControl('', [                              //Campo requerido
       Validators.required,
+      Validators.maxLength(150)
     ])
   });
 

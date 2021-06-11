@@ -1,15 +1,14 @@
-<div class="container d-flex aling-center">
-    <form #formAsignatura="ngForm" (ngSubmit)="onSubmit(formAsignatura)">
+<div class="container form-asignatura">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
         <div class="form-group">
-            <label for="sigla">Clave de la asignatura</label>
+            <label for="titulo">Tema principal de la comunidad</label>
             <input 
-                
-                id="sigla" 
-                type="text" 
-                class="form-control"
-                name="sigla"
-                [ngModel]="asignaturaService.selectAsignatura.Sigla"
-                (ngModelChange)="asignaturaService.selectAsignatura.setSigla($event)"
+                formControlName="titulo"
+                id      ="titulo" 
+                type    ="text" 
+                class   ="form-control"
+                name    ="titulo"
+                [value] ="titulo"
                 >
                 <!-- <div class="alert alert-danger" *ngIf="username?.touched && username?.invalid">
                     <div *ngIf="username?.errors?.required">El nombre de usuario es requerido.</div>
@@ -18,63 +17,33 @@
                     <div *ngIf="username?.errors?.isUnique">This username isn't available</div>
                 </div> -->
             <div class="form-group">
-            <label for="nombre">Nombre de la asignatura</label>
-            <input 
-                
-                id="nombre" 
-                type="text" 
-                class="form-control"
-                name="nombre"
-                [ngModel]="asignaturaService.selectAsignatura.getNombre()"
-                (ngModelChange)="asignaturaService.selectAsignatura.setNombre($event)">
+            <label for="contenido">Descripcion de la comunidad</label>
+            <textarea 
+                formControlName="contenido"
+                id      ="contenido" 
+                type    ="text" 
+                class   ="form-control"
+                name    ="contenido"
+                [value] ="contenido"
+                ></textarea>
                 <!-- <div class="alert alert-danger" *ngIf="password?.touched && password?.invalid">
                 <div *ngIf="password?.errors?.required">La contrasena es requerida.</div>
                 <div *ngIf="password?.errors?.minlength">La contrasena debe contener al menos 8 caracteres.</div> -->
             </div>
             <div class="form-group">
-                <label for="horario">Horario en el que se dicta la asignatura</label>
+                <label for="imagen">Link de la imagen de perfil</label>
                 <input 
-                    
-                    id="horario" 
-                    type="text" 
-                    class="form-control"
-                    name="horario"
-                    [ngModel]="asignaturaService.selectAsignatura.getHorario()"
-                    (ngModelChange)="asignaturaService.selectAsignatura.setHorario($event)">
+                    formControlName="imagen"
+                    id      ="imagen" 
+                    type    ="text" 
+                    class   ="form-control"
+                    name    ="imagen"
+                    [value] ="imagen"
+                    >
             </div>
-            <div class="form-group">
-                <label for="sala">Sala correspondiente a la asignatura</label>
-                <input 
-                    
-                    id="sala" 
-                    type="text" 
-                    class="form-control"
-                    name="sala"
-                    [ngModel]="asignaturaService.selectAsignatura.getSala()"
-                    (ngModelChange)="asignaturaService.selectAsignatura.setSala($event)">
-            </div>
-            <div class="form-group">
-                <label for="imagen">Ingrese alguna imagen de referencia</label>
-                <input 
-                    name="imagen"
-                    id="imagen" 
-                    type="text" 
-                    class="form-control"
-                    [ngModel]="asignaturaService.selectAsignatura.getImagen()"
-                    (ngModelChange)="asignaturaService.selectAsignatura.setImagen($event)">
-            </div>
-            <div class="form-group">
-                <label for="facultad">Ingrese la facultad en la que se dicta la asignatura</label>
-                <input 
-                    name="facultad"
-                    id="facultad" 
-                    type="text" 
-                    class="form-control"
-                    [ngModel]="asignaturaService.selectAsignatura.getFacultad()"
-                    (ngModelChange)="asignaturaService.selectAsignatura.setFacultad($event)">
-            </div>
+            
         </div>
-        <button class="btn btn-primary" type="submit">Sign Up</button>
+        <button class="btn btn-primary" type="submit">Ingresar comunidad</button>
         <p>No estas registrado? <a routerLink="../registro">Ingresa aqui</a></p>
     </form>
 </div>

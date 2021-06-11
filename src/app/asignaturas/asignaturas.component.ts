@@ -8,7 +8,7 @@ import { Asignatura }         from '../../models/asignatura';
 import { NgForm }             from '@angular/forms';
 
 //Services
-import { AsignaturaService }  from '../services/asignatura.service';
+import { ComunidadService }  from '../services/comunidad.service';
 
 @Component({
   selector: 'app-asignaturas',
@@ -16,15 +16,15 @@ import { AsignaturaService }  from '../services/asignatura.service';
   styleUrls: ['./asignaturas.component.less']
 })
 export class AsignaturasComponent implements OnInit {
-
+/*
   
-  constructor(private asignaturaService: AsignaturaService) {};
- 
+  constructor(private asignaturaService: ComunidadService) {};
+ */
   ngOnInit(): void {                        //Instancia de la asignatura y reinicio de formulario
-    this.asignaturaService.getAsignatura();
-    this.resetForm();
+    // this.asignaturaService.getComunidad();
+    // this.resetForm();
   }
-
+/*
   onSubmit(formAsignatura: NgForm){         //Inserción de datos a la DB y reinicio de formulario
     console.log(formAsignatura);
       this.asignaturaService.insertAsignatura(formAsignatura.value);
@@ -37,5 +37,5 @@ export class AsignaturasComponent implements OnInit {
     if(formAsignatura != null)
       formAsignatura.reset();
       this.asignaturaService.selectAsignatura = new Asignatura();
-  }
+  }*/
 }

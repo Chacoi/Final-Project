@@ -1,0 +1,17 @@
+<div class="container" id="tList"> 
+    <button class="btn mb-2" id="agregar-disc" routerLink="/add-disc">Agregar comunidad</button>
+   <div class="tList" *ngFor="let comunidad of comunidadList">
+       <div class="d-flex justify-content-between titulo">
+           <h4 class="titulo">{{comunidad.titulo}}</h4>
+           <span class="fecha">{{comunidad.contenido}}</span>
+       </div>
+       <div class="d-flex justify-content-between">
+           <div class="btn-group">
+               <button class="btn no-me-interesa">No me interesa</button>
+               <button class="btn me-interesa" routerLink="/detalle-comunidad" (click)="this.comunidadService.verComunidad(comunidad)">Ver comunidad</button>
+           </div>
+           <span class="clave">INF4020-2</span>
+       </div>
+   </div>
+</div> 
+

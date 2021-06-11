@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AsignaturaService } from './asignatura.service';
+import { ComunidadService } from './comunidad.service';
 
-describe('AsignaturaService', () => {
-  let service: AsignaturaService;
+describe('ComunidadService', () => {
+  let service: ComunidadService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AsignaturaService);
+    service = TestBed.inject(ComunidadService);
   });
 
   it('should be created', () => {
