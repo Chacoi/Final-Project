@@ -9,7 +9,7 @@ export class UsuarioService {
 
   usuarioList   : AngularFireList<any>;
   selectUsuario : Usuario = new Usuario();
-  constructor(private firebase: AngularFireDatabase) {
+  constructor(private firebase: AngularFireDatabase, private db: AngularFireDatabase) {
     this.usuarioList = this.firebase.list('usuarios');
   }
   
@@ -28,6 +28,7 @@ export class UsuarioService {
         correo  : usuario.correo,
         rango   : usuario.rango, 
         rol     : usuario.rol,
+        comunidades: ["algo"]
       });
     }
 
@@ -43,5 +44,19 @@ export class UsuarioService {
       rol     : usuario.rol,
       });
     }
+
+    updateIdUsuario(idUsuario: string, correoUsuario: string){
+      const ref = this.db.database.ref();
+      let key: string;
+      return ref.child('usuarios').orderByChild('correo').equalTo(correoUsuario).once('value').then(snap => {
+        snap.forEach(data => {
+          key = data.key;
+          this.usuarioList.update(key, {
+            id: idUsuario
+          });
+        });
+      
+    });
+  }
 
 }

@@ -32,6 +32,8 @@ import { CrearAsignaturaComponent }   from './crear-asignatura/crear-asignatura.
 import { CrearDiscusionComponent } from './crear-discusion/crear-discusion.component';
 import { ComunidadComponent } from './comunidad/comunidad.component';
 import { ListaComunidadesComponent } from './lista-comunidades/lista-comunidades.component';
+import { MisComunidadesComponent } from './mis-comunidades/mis-comunidades.component';
+import { ResenasComponent } from './resenas/resenas.component';
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { ListaComunidadesComponent } from './lista-comunidades/lista-comunidades
     CrearAsignaturaComponent,
     CrearDiscusionComponent,
     ComunidadComponent,
-    ListaComunidadesComponent
+    ListaComunidadesComponent,
+    MisComunidadesComponent,
+    ResenasComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +63,7 @@ import { ListaComunidadesComponent } from './lista-comunidades/lista-comunidades
     AngularFireStorageModule,
     RouterModule.forRoot([
       {path:'',                   component: InicioComponent, canActivate: [AuthService]},
-      {path:'discusiones',        component: DiscusionesComponent},
+      {path:'discusiones',        component: DiscusionesComponent, canActivate: [AuthService]},
       {path:'asignaturas',        component: AsignaturasComponent},
       {path:'filtro',             component: FiltroComponent, canActivate: [AuthService]},
       {path: 'filtro/id:',        component: FiltroComponent},
@@ -67,10 +71,12 @@ import { ListaComunidadesComponent } from './lista-comunidades/lista-comunidades
       {path:'detalle-discusion',  component: DetalleDiscusionComponent},
       {path:'registro',           component: RegistroComponent},
       {path:'login',              component: LoginComponent},
-      {path:'add-asig',           component: CrearAsignaturaComponent},
+      {path:'add-com',            component: CrearAsignaturaComponent},
       {path:'add-disc',           component: CrearDiscusionComponent},
       {path:'comunidad',          component: ComunidadComponent},
-      {path:'lista-comunidades',  component: ListaComunidadesComponent}
+      {path:'lista-comunidades',  component: ListaComunidadesComponent, canActivate: [AuthService]},
+      {path:'mis-comunidades',    component: MisComunidadesComponent, canActivate: [AuthService]},
+      {path:'resenas',            component: ResenasComponent, canActivate: [AuthService]}
     ]),
     FormsModule,
     ReactiveFormsModule,

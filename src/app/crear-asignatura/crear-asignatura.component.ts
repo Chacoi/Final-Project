@@ -19,9 +19,13 @@ export class CrearAsignaturaComponent implements OnInit {
   ngOnInit(): void{
     this.comunidadService.getComunidad();
     this.resetForm();
+    
   }
     //---------Validaciones de campos---------
     form = new FormGroup({
+      idComunidad: new FormControl('',[
+        Validators.required
+      ]),
       titulo: new FormControl('', [                           //Campo requerido
         Validators.required
       ]),
@@ -35,6 +39,9 @@ export class CrearAsignaturaComponent implements OnInit {
     });
   
      //---------Accesos---------
+    get idComunidad(){
+      return this.form.get('idComunidad')
+    }
     get titulo(){
       return this.form.get('titulo')
     }
@@ -48,7 +55,7 @@ export class CrearAsignaturaComponent implements OnInit {
     
   
     onSubmit(form){
-      this.comunidadService.selectComunidad.id = "pendiente";
+      this.comunidadService.selectComunidad.id = this.idComunidad.value;
       this.comunidadService.selectComunidad.titulo = this.titulo.value;
       this.comunidadService.selectComunidad.contenido = this.contenido.value;
       this.comunidadService.selectComunidad.imagen = this.imagen.value;

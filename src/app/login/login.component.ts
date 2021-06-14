@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
       var user = userCredential.user;
       // ...
       console.log(this.email.value);
+      this.usuarioService.updateIdUsuario(firebase.auth().currentUser.uid, this.email.value);
     })
     .catch((error) => {
       var errorCode = error.code;

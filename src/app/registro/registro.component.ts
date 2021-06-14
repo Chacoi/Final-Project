@@ -63,7 +63,7 @@ export class RegistroComponent implements OnInit{
         // ..
       });
     this.usuarioService.selectUsuario.correo  = this.email.value;
-    this.usuarioService.selectUsuario.id      = "no-id";
+    this.usuarioService.selectUsuario.id      = firebase.auth().currentUser.uid;
     this.usuarioService.selectUsuario.password= this.password.value;
     this.usuarioService.selectUsuario.rango   = "noob";
     this.usuarioService.selectUsuario.rol     = "indeterminado";

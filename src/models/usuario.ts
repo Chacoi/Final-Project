@@ -7,6 +7,7 @@ export class Usuario{
     correo  : string;
     rango   : string;
     rol     : string;
+    comunidades: string[];
 
     
 
@@ -18,5 +19,6 @@ export class Usuario{
         this.correo     = correo;
         this.rango      = rango;
         this.rol        = rol;
+        this.comunidades= [];
     }
 }

@@ -10,12 +10,27 @@
                 name    ="titulo"
                 [value] ="titulo"
                 >
-                <!-- <div class="alert alert-danger" *ngIf="username?.touched && username?.invalid">
-                    <div *ngIf="username?.errors?.required">El nombre de usuario es requerido.</div>
+                 <div class="alert alert-danger" *ngIf="titulo?.touched && titulo?.invalid">
+                    <div *ngIf="titulo?.errors?.required">El nombre de la comunidad es requerido.</div><!--
                     <div *ngIf="username?.errors?.minlength">El nombre de usuario debe tener al menos 5 caracteres.</div>
                     <div *ngIf="username?.errors?.cantContainSpace">El nombre de usuario no puede contener espacios.</div>
                     <div *ngIf="username?.errors?.isUnique">This username isn't available</div>
                 </div> -->
+                </div>
+            <div class="form-group">
+                <label for="idComunidad">Usted debe asignarle un identificador a la comunidad</label>
+                <input 
+                        formControlName="idComunidad"
+                        id      ="idComunidad" 
+                        type    ="text" 
+                        class   ="form-control"
+                        name    ="idComunidad"
+                        [value] ="idComunidad"
+                        >
+            </div>
+            <div class="alert alert-danger" *ngIf="idComunidad?.touched && idComunidad?.invalid">
+                <div *ngIf="idComunidad?.errors?.required">La id de la comunidad es requerida es requerido.</div>
+            </div>
             <div class="form-group">
             <label for="contenido">Descripcion de la comunidad</label>
             <textarea 
@@ -26,9 +41,10 @@
                 name    ="contenido"
                 [value] ="contenido"
                 ></textarea>
-                <!-- <div class="alert alert-danger" *ngIf="password?.touched && password?.invalid">
-                <div *ngIf="password?.errors?.required">La contrasena es requerida.</div>
+                 <div class="alert alert-danger" *ngIf="contenido?.touched && contenido?.invalid">
+                <div *ngIf="contenido?.errors?.required">La descripcion de la comunidad es requerida.</div><!--
                 <div *ngIf="password?.errors?.minlength">La contrasena debe contener al menos 8 caracteres.</div> -->
+                </div>
             </div>
             <div class="form-group">
                 <label for="imagen">Link de la imagen de perfil</label>
@@ -41,9 +57,11 @@
                     [value] ="imagen"
                     >
             </div>
-            
+            <div class="alert alert-danger" *ngIf="imagen?.touched && imagen?.invalid">
+                <div *ngIf="imagen?.errors?.required">El link de la imagen es requerido.</div>
+            </div>
         </div>
-        <button class="btn btn-primary" type="submit">Ingresar comunidad</button>
-        <p>No estas registrado? <a routerLink="../registro">Ingresa aqui</a></p>
+        <button class="btn btn-primary" type="submit" routerLink="/lista-comunidades">Ingresar comunidad</button>
+        
     </form>
 </div>

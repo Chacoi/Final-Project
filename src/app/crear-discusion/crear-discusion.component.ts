@@ -53,7 +53,6 @@ export class CrearDiscusionComponent implements OnInit {
     this.discService.selectDiscusion.autor      = firebase.auth().currentUser.displayName;
     this.discService.selectDiscusion.titulo     = this.titulo.value;
     this.discService.selectDiscusion.contenido  = this.contenido.value;
-    this.discService.selectDiscusion.comentarios= null;
     this.discService.insertDiscusion(this.discService.selectDiscusion);
     this.resetForm(form);
     this.router.navigateByUrl('/discusiones');

@@ -5,16 +5,14 @@ export class Discusion{
      autor: string;
      titulo: string;
      contenido: string;
-     //fecha: String;
-     comentarios: Comentario[];
+     idComunidad: string;
 
-    constructor(id?, autor?, titulo?, contenido?, comentarios?){
+    constructor(id?, autor?, titulo?, contenido?, idComunidad?){
         this.id             = id;
         this.autor          = autor;
         this.titulo         = titulo;
         this.contenido      = contenido;
-        //this.fecha          = fecha;
-        this.comentarios    = comentarios;
+        this.idComunidad    = idComunidad
     }
 /*
     public getId(): String {

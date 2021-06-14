@@ -29,8 +29,7 @@ export class DiscusionService {
       autor       : discusion.autor,
       titulo      : discusion.titulo,
       contenido   : discusion.contenido,
-      //fecha       : discusion.fecha, 
-      comentarios : discusion.comentarios,
+      idComunidad : discusion.idComunidad
     });
   }
 

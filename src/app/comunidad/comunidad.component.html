@@ -1,18 +1,18 @@
 <div class="container detalles">
     <div class="row">
         <div class="col-3">
-            <img src="../../assets/libros antiguos.jpg">
+            <img src="{{this.comunidadService.selectComunidad.imagen}}">
         </div>
         <div class="col-7">
             <div class="row">
                 <div class="col-6">
-                    <h4><span class="detalle">Nombre:</span>  Nombre comunidad</h4>
+                    <h4><span class="detalle">Nombre:{{this.comunidadService.selectComunidad.titulo}}</span></h4>
                 </div>
                 <div class="col-6">
-                    
+                    <button class="btn btn-success" (click)="unirUsuario(firebase.auth().currentUser.uid, this.comunidadService.selectComunidad.id)">Unirse a la comunidad</button>
                 </div>
             </div>
-            <p>Aqui iria la descripcion de la comunidad y todo eso</p>
+            <p>{{this.comunidadService.selectComunidad.contenido}}</p>
         </div>
         <div class="col-2">
             <tr>
@@ -24,7 +24,24 @@
     </div>
     <div class="row">
         <div class="col-10">
-            <app-discusiones></app-discusiones>
+            <div class="container" id="tList"> 
+                <button class="btn mb-2" id="agregar-disc" routerLink="/add-disc" (click)="pasarIdComunidad()">Agregar discusión</button>
+               <div class="tList" *ngFor="let discusion of discusionList">
+                   <ng-container *ngIf="discusion.idComunidad == this.comunidadService.selectComunidad.id">
+                        <div class="d-flex justify-content-between titulo">
+                            <h4 class="titulo">{{discusion.titulo}}</h4>
+                            <span class="fecha">creado el pendiente</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <div class="btn-group">
+                                <button class="btn no-me-interesa">No me interesa</button>
+                                <button class="btn me-interesa" routerLink="/detalle-discusion" (click)="buscarDiscusion(discusion, discusion.titulo)">Unirse</button>
+                            </div>
+                            <span class="clave">INF4020-2</span>
+                        </div>
+                   </ng-container>
+               </div>
+           </div> 
         </div>
         <div class="col-2">
             <tr>

@@ -29,11 +29,11 @@ export class DiscusionesComponent implements OnInit {
     })
   }
   
-  buscarDiscusion(discusion: Discusion, id: string){
+  buscarDiscusion(discusion: Discusion, tituloDiscusion: string){
     this.discusion = discusion;
     const ref = this.db.database.ref();
     let key: string;
-    return ref.child('discusiones').orderByChild('titulo').equalTo(id).once('value').then(snap => {
+    return ref.child('discusiones').orderByChild('titulo').equalTo(tituloDiscusion).once('value').then(snap => {
       snap.forEach(data => {
         key = data.key;
       })

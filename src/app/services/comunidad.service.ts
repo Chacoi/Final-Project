@@ -27,6 +27,7 @@ export class ComunidadService {
     }
 
     verComunidad(comunidad: Comunidad){
+      this.selectComunidad.id = comunidad.id;
       this.selectComunidad.imagen      = comunidad.imagen;
       this.selectComunidad.titulo     = comunidad.titulo;
       this.selectComunidad.contenido  = comunidad.contenido;
