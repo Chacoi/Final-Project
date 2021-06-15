@@ -34,6 +34,8 @@ import { ComunidadComponent } from './comunidad/comunidad.component';
 import { ListaComunidadesComponent } from './lista-comunidades/lista-comunidades.component';
 import { MisComunidadesComponent } from './mis-comunidades/mis-comunidades.component';
 import { ResenasComponent } from './resenas/resenas.component';
+import { CrearResenaComponent } from './crear-resena/crear-resena.component';
+import { ListaResenasComponent } from './lista-resenas/lista-resenas.component';
 
 
 @NgModule({
@@ -53,7 +55,9 @@ import { ResenasComponent } from './resenas/resenas.component';
     ComunidadComponent,
     ListaComunidadesComponent,
     MisComunidadesComponent,
-    ResenasComponent
+    ResenasComponent,
+    CrearResenaComponent,
+    ListaResenasComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +80,9 @@ import { ResenasComponent } from './resenas/resenas.component';
       {path:'comunidad',          component: ComunidadComponent},
       {path:'lista-comunidades',  component: ListaComunidadesComponent, canActivate: [AuthService]},
       {path:'mis-comunidades',    component: MisComunidadesComponent, canActivate: [AuthService]},
-      {path:'resenas',            component: ResenasComponent, canActivate: [AuthService]}
+      {path:'resenas',            component: ResenasComponent, canActivate: [AuthService]},
+      {path:'crear-resena',       component: CrearResenaComponent, canActivate: [AuthService]},
+      {path:'lista-resenas',      component: ListaResenasComponent, canActivate: [AuthService]}
     ]),
     FormsModule,
     ReactiveFormsModule,

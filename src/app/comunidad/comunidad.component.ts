@@ -19,6 +19,7 @@ export class ComunidadComponent implements OnInit {
   discusion = new Discusion;
   discusionList   : Discusion[];
   usuarioList: Usuario[];
+  comunidades: string[] = ["algo"];
   constructor(private usuarioService: UsuarioService, private discService: DiscusionService, public comunidadService: ComunidadService, private db: AngularFireDatabase) { }
 firebase = firebase;
   ngOnInit(): void {
@@ -45,13 +46,14 @@ firebase = firebase;
   }
 
   unirUsuario(idUsuario: string, idComunidad: string){
-    
     this.usuarioList.forEach(element => {
       console.log(element.id);
       if(idUsuario == element.id){
-        console.log(element.comunidades);
-        
-        element.comunidades.push(idComunidad);
+        <string[]>element.comunidades;
+        //this.comunidades = element.comunidades;
+        element.comunidades.forEach((item) => {
+          console.log(item)
+        });
       }
       
     });

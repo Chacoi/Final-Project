@@ -28,7 +28,7 @@ export class UsuarioService {
         correo  : usuario.correo,
         rango   : usuario.rango, 
         rol     : usuario.rol,
-        comunidades: ["algo"]
+        comunidades: ["dato"]
       });
     }
 
