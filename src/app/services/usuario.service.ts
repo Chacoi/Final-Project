@@ -27,8 +27,7 @@ export class UsuarioService {
         password: usuario.password,
         correo  : usuario.correo,
         rango   : usuario.rango, 
-        rol     : usuario.rol,
-        comunidades: ["dato"]
+        rol     : usuario.rol
       });
     }
 
@@ -58,5 +57,6 @@ export class UsuarioService {
       
     });
   }
+  
 
 }

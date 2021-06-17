@@ -1,16 +1,15 @@
  <div class="container" id="tList"> 
-     <button class="btn mb-2" id="agregar-disc" routerLink="/add-disc">Agregar discusión</button>
     <div class="tList" *ngFor="let discusion of discusionList">
         <div class="d-flex justify-content-between titulo">
             <h4 class="titulo">{{discusion.titulo}}</h4>
-            <span class="fecha">creado el pendiente</span>
+            <span class="fecha">Fecha: {{discusion.fechaDia}}-{{discusion.fechaMes}}-{{discusion.fechaAno}}</span>
         </div>
         <div class="d-flex justify-content-between">
             <div class="btn-group">
                 <button class="btn no-me-interesa">No me interesa</button>
-                <button class="btn me-interesa" routerLink="/detalle-discusion" (click)="buscarDiscusion(discusion, discusion.titulo)">Unirse</button>
+                <button class="btn me-interesa" routerLink="/detalle-discusion" (click)="buscarDiscusion(discusion, discusion.titulo)">Ver más</button>
             </div>
-            <span class="clave">INF4020-2</span>
+            <span class="clave">{{discusion.idComunidad}}</span>
         </div>
     </div>
 </div> 

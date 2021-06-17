@@ -13,6 +13,7 @@ import * as firebase from 'firebase';
 export class MisComunidadesComponent implements OnInit {
   usuarioList: Usuario[];
   comunidadList: Comunidad[];
+  comunidades: string[];
   firebase = firebase;
   constructor(private usuarioService: UsuarioService, public comunidadService: ComunidadService) { }
 

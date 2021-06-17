@@ -36,6 +36,7 @@ import { MisComunidadesComponent } from './mis-comunidades/mis-comunidades.compo
 import { ResenasComponent } from './resenas/resenas.component';
 import { CrearResenaComponent } from './crear-resena/crear-resena.component';
 import { ListaResenasComponent } from './lista-resenas/lista-resenas.component';
+import { FormTipoAsignaturaComponent } from './form-tipo-asignatura/form-tipo-asignatura.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { ListaResenasComponent } from './lista-resenas/lista-resenas.component';
     MisComunidadesComponent,
     ResenasComponent,
     CrearResenaComponent,
-    ListaResenasComponent
+    ListaResenasComponent,
+    FormTipoAsignaturaComponent
   ],
   imports: [
     BrowserModule,

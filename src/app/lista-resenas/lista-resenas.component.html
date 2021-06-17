@@ -1,3 +1,32 @@
+<div class="container">
+    <div class="container d-inline-flex justify-content-around filtro">
+        <span>Filtrar por:</span>
+        <div id="facultad" class="d-inline-flex">
+          <span>Facultad:</span>
+          <div class="dropdown">
+              <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                facultad de ingenieria
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item">Facultad de ingeniería</a></li>
+              </ul>
+            </div>
+        </div>
+        <div id="carrera" class="d-inline-flex">
+          <span> Carrera:</span>
+          <div class="dropdown">
+            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              ing. de ejec. en informatica
+            </a>
+          
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li><a class="dropdown-item">Facultad de ingeniería</a></li>
+              <li><a class="dropdown-item">Facultad de química</a></li>
+              <li><a class="dropdown-item" href="#">Instituto de música</a></li>
+            </ul>
+          </div>
+        </div>
+    </div>
 <div class="container" id="tList"> 
    <div class="tList" *ngFor="let resena of resenaList">
        <div class="d-flex justify-content-between titulo">
@@ -6,8 +35,7 @@
        </div>
        <div class="d-flex justify-content-between">
            <div class="btn-group">
-               <button class="btn no-me-interesa">No me interesa</button>
-               <button class="btn me-interesa" routerLink="/resenas" (click)="this.resenaService.verResena(resena)">Ver resena</button>
+               <button class="btn ver-mas" routerLink="/resenas" (click)="this.resenaService.verResena(resena)">Ver resena</button>
            </div>
            <span class="clave">{{resena.idResena}}</span>
        </div>

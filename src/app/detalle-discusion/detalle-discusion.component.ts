@@ -5,6 +5,8 @@ import { DiscusionService } from '../services/discusion.service';
 import { AngularFireDatabase }  from '@angular/fire/database';
 import * as firebase from 'firebase';
 import { ComentarioService } from '../services/comentario.service';
+import { Router } from '@angular/router';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-detalle-discusion',
@@ -13,23 +15,44 @@ import { ComentarioService } from '../services/comentario.service';
 })
 export class DetalleDiscusionComponent implements OnInit {
 
-  comentarioList = this.db.list('discusiones/comentarios');
-  comentarios: Comentario[] = [];
+  
+  comentarioList: Comentario[];
   comentarioActual = new Comentario();
   idDiscusion: string;
-  comentario: string;
   
-  constructor(public discService: DiscusionService, private db: AngularFireDatabase, private comentarioService: ComentarioService) {
-    // const uid = this.discService.getDiscusion().;
-    // const list = this.db.database.list(`discusiones/${uid}/comentarios`);
-   }
-   crearComentario(){ 
+  
+  
+  constructor(public discService: DiscusionService, private db: AngularFireDatabase, private comentarioService: ComentarioService
+    , private route: Router) {
+    
+  }
+
+  form = new FormGroup({
+    comentario: new FormControl('',[
+      Validators.required
+    ])
+  });
+
+  get comentario(){
+    return this.form.get('comentario');
+  }
+  
+   onSubmit(form){ 
     this.comentarioActual.autor     = firebase.auth().currentUser.displayName;
     this.comentarioActual.id        = this.discService.idDiscusion;
-    this.comentarioActual.contenido = this.comentario;
+    this.comentarioActual.contenido = this.comentario.value;
     this.comentarioActual.perfil    = "pendiente";
     this.comentarioActual.tipo      = true;
-    this.comentarioService.insertComentario(this.comentarioActual, this.discService.idDiscusion);
+    const ref = this.db.database.ref();
+    let key: string;
+    return ref.child('discusiones').orderByChild('contenido').equalTo(this.discService.selectDiscusion.contenido).once('value').then(snap => {
+      snap.forEach(data => {
+        key = data.key;
+      })
+      this.comentarioService.insertComentario(this.comentarioActual, key);
+      return key;
+    })
+    
    }
   
   // obtenerComentarios(){
@@ -43,6 +66,24 @@ export class DetalleDiscusionComponent implements OnInit {
 
 
   ngOnInit(): void {
+    const ref = this.db.database.ref();
+    let key: string;
+    ref.child('discusiones').orderByChild('contenido').equalTo(this.discService.selectDiscusion.contenido).once('value').then(snap => {
+      snap.forEach(data => {
+        key = data.key;
+      })
+      this.comentarioService.getComentario(key)
+      .snapshotChanges()
+      .subscribe(item=> {
+        this.comentarioList = [];
+        item.forEach(element => {
+          let x = JSON.parse(JSON.stringify(element.payload));
+          x["$key"] = element.key;
+          this.comentarioList.push(x as Comentario);
+        })
+      })
+    })
+   
   }
 
   

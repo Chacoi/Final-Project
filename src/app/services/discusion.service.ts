@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Discusion } from 'src/models/discusion';
-import { Usuario }                              from '../../models/usuario';
-import { ComentarioService } from '../services/comentario.service';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +20,7 @@ export class DiscusionService {
   }
 
   insertDiscusion(discusion: Discusion){
+    
     console.log(discusion);
     
     //----Inserción de datos-----
@@ -28,18 +28,21 @@ export class DiscusionService {
       id          : discusion.id,
       autor       : discusion.autor,
       titulo      : discusion.titulo,
+      fechaDia       : discusion.fecha.getDay().toString(),
+      fechaMes    : discusion.fecha.getMonth().toString(),
+      fechaAno    : discusion.fecha.getFullYear().toString(),
       contenido   : discusion.contenido,
       idComunidad : discusion.idComunidad
     });
   }
 
   verDiscusion(discusion: Discusion, idDiscusion: string){
-    console.log(idDiscusion + "funcion ver discusion");
     this.selectDiscusion.autor      = discusion.autor;
     this.selectDiscusion.titulo     = discusion.titulo;
     this.selectDiscusion.contenido  = discusion.contenido;
-    this.selectDiscusion.id                = idDiscusion;
-    this.idDiscusion                     = idDiscusion;
+    this.selectDiscusion.fecha      = discusion.fecha;
+    this.selectDiscusion.id         = idDiscusion;
+    this.idDiscusion                = idDiscusion;
   }
 
 }

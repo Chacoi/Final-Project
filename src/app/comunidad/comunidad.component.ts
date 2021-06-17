@@ -6,7 +6,7 @@ import { DiscusionService } from '../services/discusion.service';
 import { Usuario } from 'src/models/usuario';
 import { UsuarioService } from '../services/usuario.service';
 import * as firebase from 'firebase';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 
 
 @Component({
@@ -19,8 +19,10 @@ export class ComunidadComponent implements OnInit {
   discusion = new Discusion;
   discusionList   : Discusion[];
   usuarioList: Usuario[];
-  comunidades: string[] = ["algo"];
-  constructor(private usuarioService: UsuarioService, private discService: DiscusionService, public comunidadService: ComunidadService, private db: AngularFireDatabase) { }
+  comunidades: AngularFireList<any>;
+  constructor(private usuarioService: UsuarioService, private discService: DiscusionService, public comunidadService: ComunidadService, private db: AngularFireDatabase) {
+    
+   }
 firebase = firebase;
   ngOnInit(): void {
     this.discService.getDiscusion()
@@ -46,17 +48,23 @@ firebase = firebase;
   }
 
   unirUsuario(idUsuario: string, idComunidad: string){
-    this.usuarioList.forEach(element => {
-      console.log(element.id);
+    const ref = this.db.database.ref();
+    let key: string;
+    return ref.child('usuarios').orderByChild('id').equalTo(idUsuario).once('value').then(snap => {
+      snap.forEach(data => {
+        key = data.key;
+      })
+      this.comunidades = this.db.list('usuarios/' + key + '/comunidades');
+      this.usuarioList.forEach(element => {
       if(idUsuario == element.id){
-        <string[]>element.comunidades;
-        //this.comunidades = element.comunidades;
-        element.comunidades.forEach((item) => {
-          console.log(item)
-        });
+        this.comunidades.push({
+          idComunidad: idComunidad
+        })
       }
-      
     });
+      return key;
+    })
+    
   }
 
   buscarDiscusion(discusion: Discusion, tituloDiscusion: string){

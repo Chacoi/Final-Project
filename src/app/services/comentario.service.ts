@@ -16,9 +16,9 @@ export class ComentarioService {
     
   }
   
-    // getComentario(){
-    //   return this.comentarioList = this.firebase.list('discusiones/' + this.discService.idDiscusion+ '/comentarios');
-    // }
+    getComentario(idDiscusion: string){
+      return this.comentarioList = this.firebase.list('discusiones/' + idDiscusion + '/comentarios');
+    }
 
     insertComentario(comentario: Comentario, idDiscusion: string){
 

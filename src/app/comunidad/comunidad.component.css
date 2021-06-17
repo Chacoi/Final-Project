@@ -35,11 +35,21 @@ h4 {
   transform: translateX(2em);
   background-color: #99e930;
   font-family: 'New Tegomin', serif;
+  margin-top: 3em;
 }
-.descripcion {
-  width: 600px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  padding-left: 0.6em;
+img {
+  width: 280px;
+  height: 280px;
+}
+#descripcion {
+  padding-left: 2em;
+  padding-top: 2em;
+}
+.detalles {
+  font-family: 'New Tegomin', serif;
+}
+.unir-comunidad {
+  background-color: rgba(241, 182, 19, 0.884);
+  color: black;
+  border-color: #cf6464;
 }

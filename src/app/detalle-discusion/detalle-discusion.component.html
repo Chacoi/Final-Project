@@ -6,25 +6,37 @@
         
         <div class="col-9">
             <h4>{{this.discService.selectDiscusion.titulo}}</h4><span><i>{{this.discService.selectDiscusion.autor}}</i></span>
-            <p>{{this.discService.selectDiscusion.contenido}}</p>
+            <p id="contenido">{{this.discService.selectDiscusion.contenido}}</p>
         </div>
     </div>
-     <form class="d-flex mb-2 mt-2">
-        <input class="form-control me-2" name="comentario" type="search" [(ngModel)]="comentario" placeholder="Escriba aquí su comentario..." aria-label="Search">
-        <button class="btn btn-outline-success" type="submit" (click)="crearComentario()">Enviar</button>
-    </form><!--
-    <div class="row" *ngFor="let comentario of comentarios">
+    <div class="row">
+        <div class="col-9">
+            <form class="d-flex mb-2 mt-2" [formGroup]="form" (ngSubmit)="onSubmit(form)">
+                <textarea 
+                class="form-control me-2" 
+                formControlName="comentario"
+                name="comentario" 
+                type="search" 
+                [value]="comentario" 
+                placeholder="Escriba aquí su comentario..." 
+                aria-label="Search"></textarea>
+                <button class="btn btn-outline-success" type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="row" *ngFor="let comentario of comentarioList">
         <div class="col-1">
             <img src="../../assets/libros antiguos.jpg" alt="" class="icon-perfil">
-            <p class="mr-2 nombre-usuario"><b>autor</b></p>
+            <p class="mr-2 nombre-usuario"><b>{{comentario.autor}}</b></p>
         </div>
         <div class="col-11 ">
-                <p class="ml-4">{{comentario.getContenido()}}</p>
+                <p class="ml-4">{{comentario.contenido}}</p>
                 <div class="d-flex justify-content-end">
                     <i class="bi bi-hand-thumbs-up-fill"></i>
                     <i class="bi bi-hand-thumbs-down-fill"></i>
                 </div>
         </div>   
-    </div> -->
+    </div> 
 </div>
  

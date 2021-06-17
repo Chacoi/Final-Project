@@ -3,3 +3,12 @@
   width: 80px;
   height: 80px;
 }
+.container {
+  font-family: 'New Tegomin', serif;
+}
+.nombre-usuario {
+  font-size: 13px;
+}
+.contenido {
+  padding-top: 1em;
+}
