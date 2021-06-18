@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
       var user = userCredential.user;
       // ...
       console.log(this.email.value);
+      this.usuarioService.updateIdUsuario(firebase.auth().currentUser.uid, this.email.value);
     })
     .catch((error) => {
       var errorCode = error.code;
@@ -79,8 +80,9 @@ export class LoginComponent implements OnInit {
           this.usuarioService.selectUsuario.correo  = firebase.auth().currentUser.email;
           this.usuarioService.selectUsuario.id      = firebase.auth().currentUser.uid;
           this.usuarioService.selectUsuario.password= "no-pass";
-          this.usuarioService.selectUsuario.rango   = "noob";
-          this.usuarioService.selectUsuario.rol     = "indefinido";
+          this.usuarioService.selectUsuario.rango   = "Aprendiz";
+          this.usuarioService.selectUsuario.puntos  = 0;
+          this.usuarioService.selectUsuario.rol     = "Persona";
           this.usuarioService.selectUsuario.username= firebase.auth().currentUser.displayName;
           console.log(this.usuarioService.selectUsuario);
           this.usuarioService.insertUsuario(this.usuarioService.selectUsuario);

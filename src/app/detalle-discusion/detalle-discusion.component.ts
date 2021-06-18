@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Discusion } from 'src/models/discusion';
 import { Comentario } from 'src/models/comentario';
+import { DiscusionService } from '../services/discusion.service';
+import { AngularFireDatabase }  from '@angular/fire/database';
+import * as firebase from 'firebase';
+import { ComentarioService } from '../services/comentario.service';
+import { Router } from '@angular/router';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-detalle-discusion',
@@ -9,25 +15,89 @@ import { Comentario } from 'src/models/comentario';
 })
 export class DetalleDiscusionComponent implements OnInit {
 
-  comentarios: Comentario[] = [];
- 
-  comentario1: Comentario;
-  comentario: string;
-  crearComentario(comentario){ 
-    this.comentario1 = new Comentario('83ue83', 'user133', comentario, '12-09-20', '../../assets/libros antiguos.jpg');
-    this.comentarios.push(this.comentario1);
+  
+  comentarioList: Comentario[];
+  comentarioActual = new Comentario();
+  idDiscusion: string;
+  isValid: boolean = false;
+  points: number = 0;
+  
+  
+  
+  constructor(public discService: DiscusionService, private db: AngularFireDatabase, private comentarioService: ComentarioService
+    , private route: Router) {
     
   }
-  contenido: String = `Lorem ipsum, dolor ficiis possimus, 
-  quasi temporibus laboriosam. Itaque, nam iste.`;
-  discusion = new Discusion('83ue83', 'user133', 'Gente tengo un problema', this.contenido, '12-09-20', null);
-  /*comentario1 = new Comentario('42re52r', 'user133', this.contenido, 'resena', '../../assets/libros antiguos.jpg');
-  comentario2 = new Comentario('42ue872r', 'user69', this.contenido, 'discusion', '../../assets/libros antiguos.jpg');
-  */
+
+  form = new FormGroup({
+    comentario: new FormControl('',[
+      Validators.required
+    ])
+  });
+
+  get comentario(){
+    return this.form.get('comentario');
+  }
   
-  constructor() { }
+   onSubmit(form){ 
+    this.comentarioActual.autor     = firebase.auth().currentUser.displayName;
+    this.comentarioActual.id        = this.discService.idDiscusion;
+    this.comentarioActual.contenido = this.comentario.value;
+    this.comentarioActual.perfil    = "pendiente";
+    this.comentarioActual.tipo      = true;
+    const ref = this.db.database.ref();
+    let key: string;
+    return ref.child('discusiones').orderByChild('contenido').equalTo(this.discService.selectDiscusion.contenido).once('value').then(snap => {
+      snap.forEach(data => {
+        key = data.key;
+      })
+      this.comentarioService.insertComentario(this.comentarioActual, key);
+      return key;
+    })
+    
+   }
+  
+  // obtenerComentarios(){
+  //   this.db.list("discusiones").. then((querySnapshot) => {
+  //     querySnapshot. forEach((doc) => {
+  //     console. log(`${doc. id} => ${doc. data()}`);
+  //     });
+  //   }
+  // }
+
+
 
   ngOnInit(): void {
+    const ref = this.db.database.ref();
+    let key: string;
+    ref.child('discusiones').orderByChild('contenido').equalTo(this.discService.selectDiscusion.contenido).once('value').then(snap => {
+      snap.forEach(data => {
+        key = data.key;
+      })
+      this.comentarioService.getComentario(key)
+      .snapshotChanges()
+      .subscribe(item=> {
+        this.comentarioList = [];
+        item.forEach(element => {
+          let x = JSON.parse(JSON.stringify(element.payload));
+          x["$key"] = element.key;
+          this.comentarioList.push(x as Comentario);
+        })
+      })
+    })
+   
   }
 
+  darLike(): boolean{
+    this.isValid = true;
+    this.points++;
+    return this.isValid;
+  }
+
+  darDislike(): boolean{
+    this.isValid = false;
+    this.points--;
+    return this.isValid;
+  }
+  
 }

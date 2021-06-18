@@ -1,0 +1,54 @@
+<div class="container form-asignatura">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+        <div class="form-group">
+            <label for="nombre">Asignatura correspondiente a la resena</label>
+            <input 
+                formControlName="nombre"
+                id      ="nombre" 
+                type    ="text" 
+                class   ="form-control"
+                name    ="nombre"
+                [value] ="nombre"
+                >
+                 <div class="alert alert-danger" *ngIf="nombre?.touched && nombre?.invalid">
+                    <div *ngIf="nombre?.errors?.required">El nombre de la asignatura es requerido.</div><!--
+                    <div *ngIf="username?.errors?.minlength">El nombre de usuario debe tener al menos 5 caracteres.</div>
+                    <div *ngIf="username?.errors?.cantContainSpace">El nombre de usuario no puede contener espacios.</div>
+                    <div *ngIf="username?.errors?.isUnique">This username isn't available</div>
+                </div> -->
+                </div>
+            <div class="form-group">
+                <label for="idResena">Debe ingresar la clave de la asignatura</label>
+                <input 
+                        formControlName="idResena"
+                        id      ="idResena" 
+                        type    ="text" 
+                        class   ="form-control"
+                        name    ="idResena"
+                        [value] ="idResena"
+                        >
+            </div>
+            <div class="alert alert-danger" *ngIf="idResena?.touched && idResena?.invalid">
+                <div *ngIf="idResena?.errors?.required">La id de la asignatura es requerida</div>
+            </div>
+            <div class="form-group">
+            <label for="descripcion">Breve descripcion de la asignatura.</label>
+            <textarea 
+                formControlName="descripcion"
+                id      ="descripcion" 
+                type    ="text" 
+                class   ="form-control"
+                name    ="descripcion"
+                [value] ="descripcion"
+                ></textarea>
+                 <div class="alert alert-danger" *ngIf="descripcion?.touched && descripcion?.invalid">
+                <div *ngIf="descripcion?.errors?.required">La descripcion de la comunidad es requerida.</div><!--
+                <div *ngIf="password?.errors?.minlength">La contrasena debe contener al menos 8 caracteres.</div> -->
+                </div>
+            </div>
+            
+        </div>
+        <button class="btn btn-primary" type="submit" routerLink="/lista-resenas">Ingresar comunidad</button>
+        
+    </form>
+</div>

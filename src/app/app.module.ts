@@ -29,6 +29,16 @@ import { DetalleDiscusionComponent }  from './detalle-discusion/detalle-discusio
 import { RegistroComponent }          from './registro/registro.component';
 import { LoginComponent }             from './login/login.component';
 import { CrearAsignaturaComponent }   from './crear-asignatura/crear-asignatura.component';
+import { CrearDiscusionComponent } from './crear-discusion/crear-discusion.component';
+import { ComunidadComponent } from './comunidad/comunidad.component';
+import { ListaComunidadesComponent } from './lista-comunidades/lista-comunidades.component';
+import { MisComunidadesComponent } from './mis-comunidades/mis-comunidades.component';
+import { ResenasComponent } from './resenas/resenas.component';
+import { CrearResenaComponent } from './crear-resena/crear-resena.component';
+import { ListaResenasComponent } from './lista-resenas/lista-resenas.component';
+import { FormTipoAsignaturaComponent } from './form-tipo-asignatura/form-tipo-asignatura.component';
+import { ResenasPipe } from './pipes/resenas.pipe';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -43,7 +53,17 @@ import { CrearAsignaturaComponent }   from './crear-asignatura/crear-asignatura.
     DetalleDiscusionComponent,
     RegistroComponent,
     LoginComponent,
-    CrearAsignaturaComponent
+    CrearAsignaturaComponent,
+    CrearDiscusionComponent,
+    ComunidadComponent,
+    ListaComunidadesComponent,
+    MisComunidadesComponent,
+    ResenasComponent,
+    CrearResenaComponent,
+    ListaResenasComponent,
+    FormTipoAsignaturaComponent,
+    ResenasPipe,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +73,7 @@ import { CrearAsignaturaComponent }   from './crear-asignatura/crear-asignatura.
     AngularFireStorageModule,
     RouterModule.forRoot([
       {path:'',                   component: InicioComponent, canActivate: [AuthService]},
-      {path:'discusiones',        component: DiscusionesComponent},
+      {path:'discusiones',        component: DiscusionesComponent, canActivate: [AuthService]},
       {path:'asignaturas',        component: AsignaturasComponent},
       {path:'filtro',             component: FiltroComponent, canActivate: [AuthService]},
       {path: 'filtro/id:',        component: FiltroComponent},
@@ -61,7 +81,14 @@ import { CrearAsignaturaComponent }   from './crear-asignatura/crear-asignatura.
       {path:'detalle-discusion',  component: DetalleDiscusionComponent},
       {path:'registro',           component: RegistroComponent},
       {path:'login',              component: LoginComponent},
-      {path:'add-asig',           component: CrearAsignaturaComponent}
+      {path:'add-com',            component: CrearAsignaturaComponent},
+      {path:'add-disc',           component: CrearDiscusionComponent},
+      {path:'comunidad',          component: ComunidadComponent},
+      {path:'lista-comunidades',  component: ListaComunidadesComponent, canActivate: [AuthService]},
+      {path:'mis-comunidades',    component: MisComunidadesComponent, canActivate: [AuthService]},
+      {path:'resenas',            component: ResenasComponent, canActivate: [AuthService]},
+      {path:'crear-resena',       component: CrearResenaComponent, canActivate: [AuthService]},
+      {path:'lista-resenas',      component: ListaResenasComponent, canActivate: [AuthService]}
     ]),
     FormsModule,
     ReactiveFormsModule,

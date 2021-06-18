@@ -1,0 +1,37 @@
+<div class="container d-flex">
+    <form [formGroup]="form" (ngSubmit)="onSubmit(form)">
+        <div class="form-group">
+            <label for="titulo">Título de la discusión</label>
+            <input 
+            formControlName="titulo"
+            id="titulo"
+            class="form-control"
+            type="text"
+            name="titulo"
+            [value]="titulo"
+            >
+            <div class="alert alert-danger" *ngIf="titulo?.touched && titulo?.invalid">
+                <div *ngIf="titulo?.errors?.required">El titulo de su discusion es requerido.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="contenido">Proponga aqui su discusion</label>
+            <textarea 
+                formControlName="contenido"
+                id="contenido" 
+                type="text" 
+                class="form-control"
+                name="contenido"
+                [value]="contenido"
+                ></textarea>
+                <div class="alert alert-danger" *ngIf="contenido?.touched && contenido?.invalid">
+                    <div *ngIf="contenido?.errors?.required">El contenido de su discusion es requerido.</div>
+                    <div *ngIf="contenido?.errors?.maxlength">Haz alcanzado el máximo de caracteres permitidos</div>
+                </div>
+        </div>
+
+        <button class="btn" type="submit" id="publicar">Publicar discusion</button>
+        
+
+    </form>
+</div>

@@ -1,20 +1,21 @@
 
 export class Comentario{
-    private id: String;
-    private autor: String;
-    private contenido: String;
-    private tipo: Boolean;
-    private perfil: String;
+
+     id: String;
+     autor: String;
+     contenido: String;
+     tipo: Boolean;
+     perfil: String;
     
 
-    constructor(id, autor, contenido, tipo, perfil){
+    constructor(id?, autor?, contenido?, tipo?, perfil?){
         this.id = id;
         this.autor = autor;
         this.contenido = contenido;
         this.tipo = tipo;//  discusion o resena
         this.perfil = perfil;
     }
-
+/*
     public getId(): String {
         return this.id;
     }
@@ -53,6 +54,6 @@ export class Comentario{
 
     public setPerfil(perfil: String): void {
         this.perfil = perfil;
-    }
+    }*/
 }
 

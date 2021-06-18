@@ -31,3 +31,8 @@ h4 {
 .me-interesa {
   background-color: #99e930;
 }
+#agregar-disc {
+  transform: translateX(2em);
+  background-color: #99e930;
+  font-family: 'New Tegomin', serif;
+}

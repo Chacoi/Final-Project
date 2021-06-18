@@ -1,0 +1,55 @@
+.tList {
+  border: 2px solid #cf6464;
+  text-overflow: ellipsis;
+  margin-bottom: 1em;
+  height: 5em;
+  font-family: 'New Tegomin', serif;
+  border-radius: 3.68%;
+  background-color: #e1eed0;
+  margin-left: 1em;
+}
+button {
+  margin-left: 0.6em;
+}
+.titulo {
+  margin-right: 0.6em;
+}
+.clave {
+  margin-right: 0.4em;
+}
+h4 {
+  width: 600px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-left: 0.6em;
+}
+.no-me-interesa {
+  background-color: #cf6464;
+  color: blanchedalmond;
+}
+.me-interesa {
+  background-color: #99e930;
+}
+#agregar-disc {
+  transform: translateX(2em);
+  background-color: #99e930;
+  font-family: 'New Tegomin', serif;
+  margin-top: 3em;
+}
+img {
+  width: 280px;
+  height: 280px;
+}
+#descripcion {
+  padding-left: 2em;
+  padding-top: 2em;
+}
+.detalles {
+  font-family: 'New Tegomin', serif;
+}
+.unir-comunidad {
+  background-color: rgba(241, 182, 19, 0.884);
+  color: black;
+  border-color: #cf6464;
+}

@@ -12,16 +12,22 @@
               <a class="nav-link" routerLink="">INICIO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="filtro">ASIGNATURAS</a>
+              <a routerLink="mis-comunidades" class="nav-link">MIS COMUNIDADES</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" routerLink="discusiones" tabindex="-1" >DISCUSIONES</a>
+              <a routerLink="lista-comunidades" class="nav-link">COMUNIDADES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="discusiones" tabindex="-1" >MIS DISCUSIONES</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/lista-resenas" tabindex="-1" >RESENAS</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" routerLink="login">Iniciar sesion</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" (click)="logout()">logout</a>
+              <a class="nav-link" (click)="logout()" routerLink="login">logout</a>
             </li>
           </ul>
         </div>
