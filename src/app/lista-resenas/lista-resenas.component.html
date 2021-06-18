@@ -1,7 +1,7 @@
 <div class="container">
-   <input type="text" class="form-control" name="filterResena" placeholder="Buscar reseña..." [(ngModel)]="filterResena">
+   <!-- <input type="text" class="form-control" name="filterResena" placeholder="Buscar reseña..." [(ngModel)]="filterResena"> -->
 <div class="container" id="tList"> 
-   <div class="tList" *ngFor="let resena of resenaList | resenas: filterResena">
+   <div class="tList" *ngFor="let resena of resenaList">
        <div class="d-flex justify-content-between titulo">
            <h4 class="resena">{{resena.nombre}}</h4>
            <span class="fecha">{{resena.descripcion}}</span>

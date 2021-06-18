@@ -8,6 +8,7 @@ export class Usuario{
     puntos  : number;
     rango   : string;
     rol     : string;
+    perfil  : string;
     comunidades: string[];
 
     
@@ -21,6 +22,7 @@ export class Usuario{
         this.puntos     = puntos;
         this.rango      = rango;
         this.rol        = rol;
+        this.perfil     = "../../assets/default-profile.jpg";
         this.comunidades= [];
     }
 }
