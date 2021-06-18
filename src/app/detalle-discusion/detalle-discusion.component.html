@@ -33,10 +33,10 @@
         <div class="col-11 ">
                 <p class="ml-4 contenido">{{comentario.contenido}}</p>
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-success" [disabled]="isValid" (click)="darLike()">
+                    <button class="btn btn-success" (click)="toggleLike(comentario.contenido, comentario.id)">
                         <i class="bi bi-hand-thumbs-up-fill"></i>
                     </button>
-                    <button class="btn btn-danger" [disabled]="isValid" (click)="darDislike()">
+                    <button class="btn btn-danger">
                         <i class="bi bi-hand-thumbs-down-fill"></i>
                     </button>  
                 </div>

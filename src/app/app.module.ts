@@ -88,7 +88,8 @@ import { PerfilComponent } from './perfil/perfil.component';
       {path:'mis-comunidades',    component: MisComunidadesComponent, canActivate: [AuthService]},
       {path:'resenas',            component: ResenasComponent, canActivate: [AuthService]},
       {path:'crear-resena',       component: CrearResenaComponent, canActivate: [AuthService]},
-      {path:'lista-resenas',      component: ListaResenasComponent, canActivate: [AuthService]}
+      {path:'lista-resenas',      component: ListaResenasComponent, canActivate: [AuthService]},
+      {path:'profile',            component: PerfilComponent, canActivate: [AuthService]}
     ]),
     FormsModule,
     ReactiveFormsModule,

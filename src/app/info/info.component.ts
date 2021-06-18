@@ -14,8 +14,8 @@ export class InfoComponent implements OnInit {
   contenido   : String;
 
   crearResena(contenido){
-    this.resena = new Comentario('42re52r', 'user133', contenido, 'resena', '../../assets/libros antiguos.jpg');
-    this.comentarios.push(this.resena);
+    // this.resena = new Comentario('42re52r', 'user133', contenido, 'resena', '../../assets/libros antiguos.jpg');
+    // this.comentarios.push(this.resena);
   }
   constructor() { }
 

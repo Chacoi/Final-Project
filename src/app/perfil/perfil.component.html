@@ -1,13 +1,51 @@
-<div class="container">
-    <div class="row">
-        <div class="col-3">
+<div *ngFor="let usuario of usuarioList">
+    <div class="container" *ngIf="usuario.id == idUsuario">
+        <div class="row">
+            <div class="col-4">
 
-        </div>
-        <div class="col-3">
+            </div>
+            <div class="col-4 profile-picture">
+                <img src="../../assets/profile.png">
+            </div>
+            <div class="col-4">
 
+            </div>
         </div>
-        <div class="col-3">
+        <div class="row">
+            <div class="col-8">
+                <h3>Nombre de usuario: {{this.usuario.username}}</h3>
+            </div>
             
+            <div class="col-4">
+                <h3></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <h3>Correo: {{this.usuario.correo}}</h3>
+            </div>
+            
+            <div class="col-4">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+            <h3> Puntos: {{this.usuario.puntos}}</h3>
+            </div>
+            
+            <div class="col-4">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <h3>Rango: {{this.usuario.rango}}</h3>
+            </div>
+            
+            <div class="col-4">
+                
+            </div>
         </div>
     </div>
 </div>

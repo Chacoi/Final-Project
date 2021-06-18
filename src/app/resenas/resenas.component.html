@@ -1,14 +1,13 @@
-<div  id="show-page">
+<div  id="show-page">  <!-- Módulo no completado-->
     <div class="container">
       <div class="row">
           <div class="col-md-3">
             <div class="card">
               <img class="img-responsive" src="../../assets/libros antiguos.jpg">
               <div class="card-body">
-                <h4 class="card-title">Profesor(a) a cargo: profesor</h4>
-                <p class="card-text">Claves en las que se dicta: </p>
-              </div>
+              
             </div>       
+            </div>
           </div>
           <div class="col-md-9">
               <div class="thumbnail">
@@ -30,9 +29,9 @@
                               </p>
                             </form>
                       </h4>
-                      <h4>Valoracion promedio del ramo: 5</h4>
-                      <h3><a>nombre asignatura</a></h3>
-                      <p>descripcion</p>
+                      <h4>Valoracion promedio del ramo: {{this.resenaService.selectResena.puntuacion}}</h4>
+                      <h3><a>Nombre asignatura: {{this.resenaService.selectResena.nombre}}</a></h3>
+                      <p>Descripción: {{this.resenaService.selectResena.descripcion}}</p>
                   </div>
               </div>
               <div class="well">

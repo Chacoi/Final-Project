@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Comunidad } from '../../models/comunidad';
 import { ComunidadService } from '../services/comunidad.service';
 import { AngularFireDatabase } from '@angular/fire/database';
+import * as firebase from 'firebase';
 @Component({
   selector: 'app-lista-comunidades',
   templateUrl: './lista-comunidades.component.html',
@@ -10,6 +11,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 export class ListaComunidadesComponent implements OnInit {
   comunidad = new Comunidad;
   comunidadList   : Comunidad[];
+  firebase = firebase;
   constructor(public comunidadService: ComunidadService, private db: AngularFireDatabase) { }
 
   ngOnInit(): void {

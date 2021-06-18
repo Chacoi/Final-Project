@@ -27,7 +27,8 @@ export class UsuarioService {
         password: usuario.password,
         correo  : usuario.correo,
         rango   : usuario.rango, 
-        rol     : usuario.rol
+        rol     : usuario.rol,
+        perfil  : usuario.perfil
       });
     }
 
@@ -39,6 +40,7 @@ export class UsuarioService {
       username: usuario.username,
       password: usuario.password,
       correo  : usuario.correo,
+      puntos  : usuario.puntos,
       rango   : usuario.rango, 
       rol     : usuario.rol,
       });
