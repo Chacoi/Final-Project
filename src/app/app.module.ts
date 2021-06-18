@@ -37,6 +37,8 @@ import { ResenasComponent } from './resenas/resenas.component';
 import { CrearResenaComponent } from './crear-resena/crear-resena.component';
 import { ListaResenasComponent } from './lista-resenas/lista-resenas.component';
 import { FormTipoAsignaturaComponent } from './form-tipo-asignatura/form-tipo-asignatura.component';
+import { ResenasPipe } from './pipes/resenas.pipe';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { FormTipoAsignaturaComponent } from './form-tipo-asignatura/form-tipo-as
     ResenasComponent,
     CrearResenaComponent,
     ListaResenasComponent,
-    FormTipoAsignaturaComponent
+    FormTipoAsignaturaComponent,
+    ResenasPipe,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

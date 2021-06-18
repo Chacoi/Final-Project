@@ -5,6 +5,7 @@ export class Usuario{
     username: string;
     password: string;
     correo  : string;
+    puntos  : number;
     rango   : string;
     rol     : string;
     comunidades: string[];
@@ -12,11 +13,12 @@ export class Usuario{
     
 
 
-    constructor(id?: string, username?: string, password?: string, correo?: string, rango?: string, rol?: string){
+    constructor(id?: string, username?: string, password?: string, correo?: string, puntos?: number, rango?: string, rol?: string){
         this.id         = id;
         this.username   = username;
         this.password   = password;
         this.correo     = correo;
+        this.puntos     = puntos;
         this.rango      = rango;
         this.rol        = rol;
         this.comunidades= [];

@@ -1,34 +1,7 @@
 <div class="container">
-    <div class="container d-inline-flex justify-content-around filtro">
-        <span>Filtrar por:</span>
-        <div id="facultad" class="d-inline-flex">
-          <span>Facultad:</span>
-          <div class="dropdown">
-              <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                facultad de ingenieria
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a class="dropdown-item">Facultad de ingeniería</a></li>
-              </ul>
-            </div>
-        </div>
-        <div id="carrera" class="d-inline-flex">
-          <span> Carrera:</span>
-          <div class="dropdown">
-            <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-              ing. de ejec. en informatica
-            </a>
-          
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <li><a class="dropdown-item">Facultad de ingeniería</a></li>
-              <li><a class="dropdown-item">Facultad de química</a></li>
-              <li><a class="dropdown-item" href="#">Instituto de música</a></li>
-            </ul>
-          </div>
-        </div>
-    </div>
+   <input type="text" class="form-control" name="filterResena" placeholder="Buscar reseña..." [(ngModel)]="filterResena">
 <div class="container" id="tList"> 
-   <div class="tList" *ngFor="let resena of resenaList">
+   <div class="tList" *ngFor="let resena of resenaList | resenas: filterResena">
        <div class="d-flex justify-content-between titulo">
            <h4 class="resena">{{resena.nombre}}</h4>
            <span class="fecha">{{resena.descripcion}}</span>

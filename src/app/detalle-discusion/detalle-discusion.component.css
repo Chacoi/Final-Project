@@ -10,5 +10,8 @@
   font-size: 13px;
 }
 .contenido {
-  padding-top: 1em;
+  padding-top: 2em;
+}
+.comentario {
+  border: #cf6464 solid 2px;
 }

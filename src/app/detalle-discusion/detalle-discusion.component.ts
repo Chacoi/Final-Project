@@ -19,6 +19,8 @@ export class DetalleDiscusionComponent implements OnInit {
   comentarioList: Comentario[];
   comentarioActual = new Comentario();
   idDiscusion: string;
+  isValid: boolean = false;
+  points: number = 0;
   
   
   
@@ -86,5 +88,16 @@ export class DetalleDiscusionComponent implements OnInit {
    
   }
 
+  darLike(): boolean{
+    this.isValid = true;
+    this.points++;
+    return this.isValid;
+  }
+
+  darDislike(): boolean{
+    this.isValid = false;
+    this.points--;
+    return this.isValid;
+  }
   
 }

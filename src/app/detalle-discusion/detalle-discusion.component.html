@@ -25,16 +25,20 @@
         </div>
     </div>
     
-    <div class="row" *ngFor="let comentario of comentarioList">
+    <div class="row comentario" *ngFor="let comentario of comentarioList">
         <div class="col-1">
             <img src="../../assets/libros antiguos.jpg" alt="" class="icon-perfil">
             <p class="mr-2 nombre-usuario"><b>{{comentario.autor}}</b></p>
         </div>
         <div class="col-11 ">
-                <p class="ml-4">{{comentario.contenido}}</p>
+                <p class="ml-4 contenido">{{comentario.contenido}}</p>
                 <div class="d-flex justify-content-end">
-                    <i class="bi bi-hand-thumbs-up-fill"></i>
-                    <i class="bi bi-hand-thumbs-down-fill"></i>
+                    <button class="btn btn-success" [disabled]="isValid" (click)="darLike()">
+                        <i class="bi bi-hand-thumbs-up-fill"></i>
+                    </button>
+                    <button class="btn btn-danger" [disabled]="isValid" (click)="darDislike()">
+                        <i class="bi bi-hand-thumbs-down-fill"></i>
+                    </button>  
                 </div>
         </div>   
     </div> 

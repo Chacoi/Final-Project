@@ -65,8 +65,9 @@ export class RegistroComponent implements OnInit{
     this.usuarioService.selectUsuario.correo  = this.email.value;
     this.usuarioService.selectUsuario.id      = "no-id-yet";
     this.usuarioService.selectUsuario.password= this.password.value;
-    this.usuarioService.selectUsuario.rango   = "noob";
-    this.usuarioService.selectUsuario.rol     = "indeterminado";
+    this.usuarioService.selectUsuario.rango   = "Aprendiz";
+    this.usuarioService.selectUsuario.puntos  = 0;
+    this.usuarioService.selectUsuario.rol     = "Persona";
     this.usuarioService.selectUsuario.username= this.username.value;
     console.log(this.username.value);
     this.usuarioService.insertUsuario(this.usuarioService.selectUsuario);

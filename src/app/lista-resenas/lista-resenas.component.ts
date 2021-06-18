@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Resena } from '../../models/resena';
 import { ResenaService } from '../services/resena.service';
 import { AngularFireDatabase } from '@angular/fire/database';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-lista-resenas',
@@ -12,6 +13,7 @@ export class ListaResenasComponent implements OnInit {
 
   resena = new Resena;
   resenaList   : Resena[];
+  filterResena = '';
   constructor(public resenaService: ResenaService, private db: AngularFireDatabase) { }
 
   ngOnInit(): void {
